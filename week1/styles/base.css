@@ -13,7 +13,7 @@
 :root {
     --primary: #0077b6;         /* main blue */
     --secondary: #00b4d8;       /* accent blue */
-    --accent: #d86c00;         /* yellow accent */
+    --accent: #d86c00;         /* orange accent */
     --background: #f4f8fb;      /* page background */
     --text: #222;               /* main text color */
     --card-bg: #fff;            /* card background */
@@ -119,7 +119,8 @@ main {
     max-width: none;
     margin: 0;
     padding: 0;
-    background: none;
+    /* Subtle blue-to-white gradient with high transparency for accessibility */
+    background: linear-gradient(135deg, rgba(0,119,182,0.08) 0%, rgba(200, 232, 247, 0.92) 100%);
     border-radius: 0;
     box-shadow: none;
     display: block;
@@ -143,6 +144,15 @@ h1 {
     padding: 1.5rem 1rem;
     margin-bottom: 2rem;
     overflow: hidden;
+}
+
+/* Improve paragraph readability inside cards */
+.card p {
+    line-height: 1.7; /* more comfortable line spacing */
+    margin-bottom: 1.1em; /* space between paragraphs */
+    font-size: 1.08rem; /* slightly larger text for readability */
+    color: #222;
+}
 }
 .card-header {
     background: var(--primary);
