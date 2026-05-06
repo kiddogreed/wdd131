@@ -1,3 +1,27 @@
+/* Scrolling title animation to replace <marquee> */
+.scrolling-title-wrapper {
+    width: 100vw;
+    overflow: hidden;
+    background: transparent;
+    margin-bottom: 0.5rem;
+}
+.scrolling-title {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 0.5rem 0;
+    animation: scroll-title 12s linear infinite;
+}
+@keyframes scroll-title {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
 /*
     Base styles for WDD 131 profile page
     - Google Fonts for modern typography
