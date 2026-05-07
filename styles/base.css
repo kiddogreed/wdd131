@@ -259,8 +259,9 @@ footer {
     transition: background 0.3s, color 0.3s;
 }
 
-footer p, footer p span {
-    color: #fff; /* ensure high contrast for all footer text */
+footer p, footer p span, #currentyear, #lastModified {
+    color: #fff !important; /* ensure maximum contrast for all footer text and dynamic elements */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7), 0 0 1px #000; /* add shadow for better contrast */
 }
 
 footer:hover {
