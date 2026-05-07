@@ -32,15 +32,16 @@
 */
 
 :root {
-    --primary: #0077b6;         /* main blue */
-    --secondary: #00b4d8;       /* accent blue */
-    --accent: #d86c00;         /* orange accent */
-    --background: #f4f8fb;      /* page background */
-    --text: #222;               /* main text color */
-    --card-bg: #fff;            /* card background */
-    --nav-bg: #333;             /* nav background */
-    --nav-hover: #d86c00;       /* nav hover color */
-    --nav-hover-text: #222;     /* nav hover text color */
+    --primary: #000000;         /* pure black for AAA contrast in footer */
+    --secondary: #00e0ff;       /* vibrant cyan */
+    --accent: #ff9900;          /* vibrant orange */
+    --background: #f0f6ff;      /* lighter blue background */
+    --text: #111111;            /* near-black for max contrast */
+    --card-bg: #ffffff;         /* card background */
+    --nav-bg: #111111;          /* deep black nav background */
+    --nav-hover: #ff9900;       /* vibrant orange nav hover */
+    --nav-hover-text: #111111;  /* near-black nav hover text */
+    --footer-text: #ffffff;     /* footer text color */
 }
 
 html, body {
@@ -250,7 +251,7 @@ h1 {
 
 footer {
     background: var(--primary); /* blue background */
-    color: #fff; /* pure white for best contrast */
+    color: var(--footer-text); /* pure white for best contrast */
     text-align: center; /* center text */
     padding: 1rem 0; /* vertical space */
     font-size: 1rem; /* normal size */
@@ -260,8 +261,8 @@ footer {
 }
 
 footer p, footer p span, #currentyear, #lastModified {
-    color: #fff !important; /* ensure maximum contrast for all footer text and dynamic elements */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.7), 0 0 1px #000; /* add shadow for better contrast */
+    color: var(--footer-text) !important; /* ensure maximum contrast for all footer text and dynamic elements */
+    text-shadow: none;
 }
 
 footer:hover {

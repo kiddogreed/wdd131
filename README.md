@@ -1,6 +1,3 @@
-
-
-
 # WDD 131 Home Page Assignment
 
 This is my home page for the WDD 131 course at BYU-Idaho. It follows the [W01 Assignment instructions](https://byui-cse.github.io/wdd131-ww-course/week01/assignment-01.html).
@@ -22,12 +19,25 @@ This is my home page for the WDD 131 course at BYU-Idaho. It follows the [W01 As
 8. Set up GitHub Pages in repo settings so my site is live at: [https://kiddogreed.github.io/wdd131/](https://kiddogreed.github.io/wdd131/)
 
 
+
 ## Testing and Auditing
 
 - I used my browser's DevTools (F12) to check for JavaScript errors and inspect the page.
 - I used DevTools CSS Overview to check color contrast.
 - I ran Lighthouse in DevTools to check accessibility, best practices, and SEO.
 - I used the WDD 131 Audit tool to self-check my HTML and CSS.
+
+### Audit Results: Issues
+
+- **Nav Links:** My `<nav>` contains only 3 `<a>` elements (Canvas, Scripture, Final Project). The audit expects at least 4 links in the `<nav>`. All other checks passed (HTML, CSS, accessibility, color contrast, structure, and naming conventions).
+
+### Other Issues Addressed
+
+- **Image Optimization:** All images are referenced correctly, have descriptive alt text, and are optimized to be under 125 kB for fast loading.
+- **No <marquee> Used:** The deprecated <marquee> tag was removed. A modern CSS animation is used for any scrolling text effects.
+- **No Inline or Embedded Styles:** All CSS is in external stylesheets, following best practices.
+- **Color Usage Standardized:** All colors are now managed via CSS variables for consistency and maintainability.
+- **Footer Contrast:** Footer background and text colors were adjusted to meet WCAG AAA contrast requirements.
 
 ## How to View
 
