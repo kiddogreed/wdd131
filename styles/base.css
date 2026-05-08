@@ -84,6 +84,7 @@ nav {
     max-width: 90vw;            /* prevent nav from touching viewport edges */
     border-radius: 6px;         /* rounded pill shape */
     box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* subtle lift shadow */
+    color: #fff;                /* explicitly set white – prevents inheriting near-black body text on dark bg */
 }
 
 ul.navigation {
@@ -206,7 +207,7 @@ h1 {
 .about-card > h2,
 .main-grid > .card > h2:first-child {
     background: #29425a;            /* dark navy banner */
-    color: #fff;                    /* white text for contrast */
+    color: #fff !important;         /* white text for contrast – !important prevents cascade override (audit: 9:1 ratio) */
     padding: 1rem 0;                /* vertical breathing room inside banner */
     border-radius: 8px 8px 0 0;    /* round top corners; bottom stays flush with card */
     margin: 0 0 1.5rem 0;          /* no top margin (sits at card top); space below */
@@ -382,23 +383,26 @@ footer {
     transition: background 0.3s, color 0.3s; /* smooth colour change on hover */
 }
 
-/* Ensure JS-injected year/date spans stay white */
+/* Default state: white text on black footer (contrast 21:1 – passes AA) */
 footer p,
 footer p span,
 #currentyear,
 #lastModified {
-    color: var(--footer-text) !important; /* override any inherited colour */
+    color: #ffffff;                 /* explicit white – no !important so hover rule can override */
     text-shadow: none;
 }
 
+/* Hover state: black text on orange footer (contrast 10:1 – passes AA) */
 footer:hover {
     background: var(--accent);      /* orange on hover */
-    color: #222;                    /* dark text on orange for contrast */
+    color: #000000;                 /* pure black on orange = 10:1 contrast, passes AA */
 }
 
 footer:hover p,
-footer:hover p span {
-    color: #222;                    /* match body text colour when footer is orange */
+footer:hover p span,
+footer:hover #currentyear,
+footer:hover #lastModified {
+    color: #000000;                 /* force black text on all footer children when hovered */
 }
 
 /* =============================================================
