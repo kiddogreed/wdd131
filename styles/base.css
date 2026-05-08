@@ -1,172 +1,190 @@
-/* Scrolling title animation to replace <marquee> */
-.scrolling-title-wrapper {
-    width: 100vw;
-    overflow: hidden;
-    background: transparent;
-    margin-bottom: 0.5rem;
-}
-.scrolling-title {
-    display: inline-block;
-    white-space: nowrap;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #fff;
-    padding: 0.5rem 0;
-    animation: scroll-title 12s linear infinite;
-}
-@keyframes scroll-title {
-    0% {
-        transform: translateX(100vw);
-    }
-    100% {
-        transform: translateX(-100vw);
-    }
-}
 /*
-    Base styles for WDD 131 profile page
-    - Google Fonts for modern typography
-    - CSS variables for easy color and theme management
-    - Responsive grid for main content
-    - Card layout for visual separation
-    - Flexbox for navigation and card content
-*/
+ * base.css — WDD 131 Profile Page Styles
+ * Author : John Russelle Domingo
+ * Course : WDD 131 – Dynamic Web Fundamentals
+ *
+ * Table of Contents
+ * -----------------
+ * 1.  CSS Variables
+ * 2.  Base / Reset
+ * 3.  Header
+ * 4.  Navigation
+ * 5.  Main & Page Title
+ * 6.  Grid Layout
+ * 7.  Card Component
+ * 8.  Card Headings (dark background)
+ * 9.  About Content (bio + photo)
+ * 10. Section Heading Row (country divider)
+ * 11. Country Flag Row
+ * 12. Resources Card
+ * 13. Footer
+ * 14. Responsive Overrides
+ */
 
+/* =============================================================
+   1. CSS VARIABLES
+   Global design tokens – change here to retheme the whole page
+   ============================================================= */
 :root {
-    --primary: #000000;         /* pure black for AAA contrast in footer */
-    --secondary: #00e0ff;       /* vibrant cyan */
-    --accent: #ff9900;          /* vibrant orange */
-    --background: #f0f6ff;      /* lighter blue background */
-    --text: #111111;            /* near-black for max contrast */
-    --card-bg: #ffffff;         /* card background */
-    --nav-bg: #111111;          /* deep black nav background */
-    --nav-hover: #ff9900;       /* vibrant orange nav hover */
-    --nav-hover-text: #111111;  /* near-black nav hover text */
-    --footer-text: #ffffff;     /* footer text color */
+    --primary:        #000000;  /* pure black – nav bg, footer bg */
+    --secondary:      #00e0ff;  /* vibrant cyan – header gradient end, link hover */
+    --accent:         #ff9900;  /* orange – nav hover bg, footer hover bg */
+    --background:     #f0f6ff;  /* soft light-blue – overall page background */
+    --text:           #111111;  /* near-black – default body text for high contrast */
+    --card-bg:        #ffffff;  /* white – card background */
+    --nav-bg:         #111111;  /* deep black – navigation bar background */
+    --nav-hover:      #ff9900;  /* orange – nav link hover/focus background */
+    --nav-hover-text: #111111;  /* near-black – nav link text colour on hover */
+    --footer-text:    #ffffff;  /* white – footer text colour */
 }
 
+/* =============================================================
+   2. BASE / RESET
+   Remove browser default spacing; set global font and colours
+   ============================================================= */
 html, body {
-    margin: 0; /* remove default margin */
-    padding: 0; /* remove default padding */
-    font-family: 'Montserrat', 'Roboto', Arial, sans-serif; /* main font stack */
-    background: var(--background); /* page background */
-    color: var(--text); /* text color */
-    min-height: 100vh; /* full viewport height */
+    margin: 0;                  /* remove default 8px browser margin */
+    padding: 0;                 /* remove default browser padding */
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif; /* Google Fonts loaded in HTML */
+    background: var(--background); /* light-blue page background */
+    color: var(--text);         /* near-black default text */
+    min-height: 100vh;          /* ensure footer stays at bottom on short pages */
 }
 
+/* =============================================================
+   3. HEADER
+   Full-width banner with left-to-right gradient
+   ============================================================= */
 header {
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); /* blue gradient */
-    color: #fff; /* white text */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* subtle shadow */
-    padding-bottom: 0.5rem; /* space below */
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); /* black → cyan */
+    color: #fff;                /* white text over dark gradient */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* soft drop shadow beneath header */
+    padding-bottom: 0.5rem;     /* space between course title and nav bar */
 }
 
 #course-title {
-    display: block; /* block for centering */
-    text-align: center; /* center text */
-    font-size: 2rem; /* large title */
-    font-weight: 700; /* bold */
-    letter-spacing: 1px; /* space between letters */
-    margin: 0.5rem 0 0.25rem 0; /* top, right/left, bottom, left */
+    display: block;             /* block so text-align and margin apply correctly */
+    text-align: center;
+    font-size: 2rem;            /* large prominent title */
+    font-weight: 700;           /* bold */
+    letter-spacing: 1px;        /* slight tracking for readability */
+    margin: 0.5rem 0 0.25rem 0; /* top | sides | bottom */
 }
 
+/* =============================================================
+   4. NAVIGATION
+   Horizontal pill-shaped bar with equal-width links
+   ============================================================= */
 nav {
-    display: flex; /* flex layout */
-    justify-content: center; /* center horizontally */
-    align-items: center; /* center vertically */
-    background: var(--nav-bg); /* nav background */
-    margin: 0 auto 2rem auto; /* center, space below */
-    max-width: 90vw; /* responsive width */
-    border-radius: 6px; /* rounded corners */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* subtle shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--nav-bg);  /* solid black bar */
+    margin: 0 auto 2rem auto;   /* centre nav; 2rem space below before main content */
+    max-width: 90vw;            /* prevent nav from touching viewport edges */
+    border-radius: 6px;         /* rounded pill shape */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* subtle lift shadow */
 }
 
 ul.navigation {
-    list-style: none; /* no bullets */
-    display: flex; /* flex row */
-    flex-wrap: wrap; /* wrap if needed */
-    align-items: center; /* center items */
-    margin: 0; /* no margin */
-    padding: 0; /* no padding */
-    width: 100%; /* full width */
-}
-ul.navigation li {
-    flex: 1 1 auto; /* grow/shrink */
-}
-ul.navigation a {
-    font-weight: 700; /* bold */
-    display: block; /* block link */
-    color: #fff; /* white text */
-    padding: 0.75rem 1.5rem; /* vertical, horizontal space */
-    text-decoration: none; /* no underline */
-    text-align: center; /* center text */
-    transition: background 0.2s, color 0.2s, text-decoration 0.2s; /* smooth hover */
-    border-radius: 4px; /* rounded corners */
-}
-ul.navigation a:hover, ul.navigation a:focus {
-    background: var(--nav-hover); /* hover color */
-    color: var(--nav-hover-text); /* hover text */
-    text-decoration: underline; /* underline on hover */
-    text-decoration-color: var(--accent); /* yellow underline */
-    outline: none; /* remove outline */
-}
-
-/* Main grid layout for two columns: About (2/3) and Resources (1/3) */
-.main-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 2rem auto;
-    align-items: stretch;
-}
-.about-card {
-    grid-column: 1;
-}
-.resources-card {
-    grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-@media (max-width: 900px) {
-    .main-grid {
-        grid-template-columns: 1fr;
-    }
-    .about-card, .resources-card {
-        grid-column: 1;
-    }
-}
-
-main {
-    max-width: none;
+    list-style: none;           /* remove default bullet points */
+    display: flex;              /* lay out nav items in a row */
+    flex-wrap: wrap;            /* wrap to next line on very small screens */
+    align-items: center;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, rgba(0,119,182,0.08) 0%, rgba(255,255,255,0.92) 100%);
-    border-radius: 0;
-    box-shadow: none;
+    width: 100%;                /* fill the nav container */
+}
+
+ul.navigation li {
+    flex: 1 1 auto;             /* each item grows/shrinks equally for even spacing */
+}
+
+ul.navigation a {
+    font-weight: 700;           /* bold link text */
+    display: block;             /* block fills the whole li for a larger click target */
+    color: #fff;                /* white text on dark nav */
+    padding: 0.75rem 1.5rem;    /* comfortable touch target (≥ 44px tall) */
+    text-decoration: none;      /* no underline by default */
+    text-align: center;
+    border-radius: 4px;         /* slight rounding on hover highlight */
+    transition: background 0.2s, color 0.2s, text-decoration 0.2s; /* smooth hover animation */
+}
+
+ul.navigation a:hover,
+ul.navigation a:focus {
+    background: var(--nav-hover);           /* orange highlight on hover */
+    color: var(--nav-hover-text);           /* dark text on orange */
+    text-decoration: underline;             /* underline for clarity */
+    text-decoration-color: var(--accent);   /* orange underline */
+    outline: none;                          /* suppress default browser focus ring (styled above) */
+}
+
+/* =============================================================
+   5. MAIN & PAGE TITLE
+   Wraps the grid; subtle diagonal gradient background
+   ============================================================= */
+main {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0,119,182,0.08) 0%,    /* faint blue tint top-left */
+        rgba(255,255,255,0.92) 100%  /* near-white bottom-right */
+    );
     display: block;
-    gap: 0;
 }
 
 h1 {
-    text-align: center; /* center text */
-    font-size: 2.2rem; /* large heading */
-    font-family: 'Montserrat', Arial, sans-serif; /* heading font */
-    font-weight: 700; /* bold */
-    margin-bottom: 1.5rem; /* space below */
+    text-align: center;
+    font-size: 2.2rem;              /* large name heading */
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;          /* space between name and card grid */
 }
 
-.card {
-    background: var(--card-bg);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border: 2px solid #bbb;
-    padding: 1.5rem 1rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
+/* =============================================================
+   6. GRID LAYOUT
+   Two-column grid: About Me card (2/3) | Resources card (1/3)
+   ============================================================= */
+.main-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* about gets twice the width of resources */
+    gap: 2rem;                      /* gutter between columns */
+    max-width: 1200px;              /* max width keeps layout readable on wide screens */
+    margin: 2rem auto;              /* centre grid; 2rem top/bottom breathing room */
+    align-items: stretch;           /* cards in the same row share equal height */
 }
+
+.about-card {
+    grid-column: 1;                 /* explicitly placed in the first column */
+    padding: 0;                     /* padding handled by inner elements */
+    font-size: 1.15rem;
+}
+
+.resources-card {
+    grid-column: 2;                 /* explicitly placed in the second column */
+    display: flex;
+    flex-direction: column;         /* stack heading, list, and contact section vertically */
+    height: 100%;                   /* stretch to match about-card height */
+}
+
+/* =============================================================
+   7. CARD COMPONENT
+   White rounded card with border and shadow
+   ============================================================= */
+.card {
+    background: var(--card-bg);             /* white card background */
+    border-radius: 8px;                     /* rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* soft elevation shadow */
+    border: 2px solid #bbb;                 /* light grey border */
+    padding: 0;                             /* inner sections provide their own padding */
+    margin-bottom: 2rem;                    /* space below each card */
+    overflow: hidden;                       /* clip children to card's border-radius */
+}
+
 .card-header {
-    background: var(--primary);
+    background: var(--primary);             /* black header bar */
     color: #fff;
     font-family: 'Montserrat', Arial, sans-serif;
     font-size: 1.3rem;
@@ -176,99 +194,253 @@ h1 {
     border-bottom: 1px solid #ccc;
     letter-spacing: 1px;
 }
+
 .card-content {
-    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    padding: 1.5rem;                        /* inner padding for card body text */
 }
-.about-card .about-content {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-}
-.about-card .about-text {
-    flex: 2;
-}
-.about-card .about-img {
-    flex: 2;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
-.about-card img {
-    max-width: 300px;
-    border-radius: 8px;
-    margin: 1rem auto 1rem auto;
-    display: block;
-}
-.location-info {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-.location-info img {
-    max-width: 80px;
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto;
-}
-.location-info figcaption {
-    font-size: 0.9rem;
-    color: #555;
+
+/* =============================================================
+   8. CARD HEADINGS — dark background banner
+   Applied to "About Me" and "Web Dev Resources" h2 elements
+   ============================================================= */
+.about-card > h2,
+.main-grid > .card > h2:first-child {
+    background: #29425a;            /* dark navy banner */
+    color: #fff;                    /* white text for contrast */
+    padding: 1rem 0;                /* vertical breathing room inside banner */
+    border-radius: 8px 8px 0 0;    /* round top corners; bottom stays flush with card */
+    margin: 0 0 1.5rem 0;          /* no top margin (sits at card top); space below */
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 100%;                    /* stretch full card width */
     text-align: center;
 }
-.resources-card ul {
-    margin: 1rem 0 0 1.5rem;
-    padding: 0;
-}
-.resources-card li {
-    margin-bottom: 0.75rem;
-    min-height: 48px; /* minimum touch target height */
+
+/* =============================================================
+   9. ABOUT CONTENT — bio text + profile photo side by side
+   ============================================================= */
+.about-card .about-content {
     display: flex;
-    align-items: center;
-}
-.resources-card a {
-    color: var(--primary);
-    text-decoration: underline;
-    font-weight: 500;
-    padding: 0.75rem 1rem;
-    min-width: 44px;
-    min-height: 44px;
-    display: inline-block;
-    border-radius: 6px;
-}
-.resources-card a:hover {
-    color: var(--secondary);
+    flex-direction: row;            /* text on left, photo on right */
+    gap: 2rem;                      /* space between text and photo columns */
+    align-items: flex-start;        /* align both columns to the top */
+    padding: 1.5rem;                /* inner padding from card edges */
 }
 
-.city-image {
-    max-width: 100%;
-    height: auto;
+.about-card .about-text {
+    flex: 1;                        /* text column fills remaining space */
+    font-size: 1rem;
+    line-height: 1.7;               /* generous line height for readability */
+}
+
+.about-card .about-img {
+    flex: 0 0 auto;                 /* photo column does not grow or shrink */
+    display: flex;
+    align-items: flex-start;        /* top-align photo with first line of bio */
+    justify-content: center;
+}
+
+.about-card .about-img img {
+    width: 160px;                   /* fixed display width (matches width attr in HTML) */
+    max-width: 160px;
+    height: 160px;                  /* square crop height */
+    object-fit: cover;              /* scale/crop image to fill square without distortion */
+    border-radius: 8px;             /* slightly rounded photo corners */
     display: block;
-    margin: 1rem auto 1rem auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* =============================================================
+   10. SECTION HEADING ROW — country/location divider
+       Bold heading (e.g. "Philippines") above a horizontal rule
+   ============================================================= */
+.section-heading-row {
+    text-align: center;
+    margin: 0.5rem 1.5rem 0.75rem 1.5rem; /* left/right match card inner padding */
+}
+
+.section-heading-row h3 {
+    font-size: 1.4rem;              /* slightly larger than body text */
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 700;               /* bold country name */
+    margin: 0 0 0.4rem 0;          /* tight gap below heading before the divider */
+    letter-spacing: 0;
+}
+
+.section-divider {
+    width: 70%;                     /* spans 70% of card width, auto-centred */
+    margin: 0 auto 1rem auto;
+    border: none;
+    border-top: 1.5px solid #aaa;  /* thin grey horizontal line */
+    opacity: 0.5;                   /* slightly faded for a subtle decorative look */
+}
+
+/* =============================================================
+   11. COUNTRY FLAG ROW — flag image + description side by side
+   ============================================================= */
+.country-row {
+    display: flex;
+    flex-direction: row;            /* flag on left, description text on right */
+    align-items: flex-start;        /* align both to the top */
+    gap: 1.5rem;                    /* space between flag column and text */
+    padding: 0 1.5rem 1.5rem 1.5rem; /* left/right match card inner padding */
+}
+
+.flag-col {
+    flex: 0 0 auto;                 /* flag column does not grow or shrink */
+    display: flex;
+    flex-direction: column;         /* stack flag image above caption */
+    align-items: flex-start;
+    min-width: 150px;               /* prevents column collapsing on narrow screens */
+}
+
+.country-flag {
+    width: 150px;                   /* display width (matches width attr in HTML) */
+    max-width: 150px;
+    height: auto;                   /* maintain aspect ratio (native: 1531 × 980) */
+    border-radius: 4px;             /* slightly rounded corners */
+    display: block;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10); /* soft shadow to lift flag off background */
+}
+
+.country-row figcaption {
+    font-weight: bold;
+    font-size: 0.9rem;              /* slightly smaller than body text */
+    margin-top: 0.4rem;             /* small gap between image and caption */
+    text-align: center;             /* centre caption under the flag */
+    width: 150px;                   /* match flag width so caption wraps neatly */
+}
+
+.country-description {
+    flex: 1;                        /* text column fills all remaining space */
+    font-size: 1rem;
+    line-height: 1.7;               /* generous line height for long text blocks */
+    text-align: left;
+    word-break: break-word;         /* prevent long words from overflowing */
+}
+
+.country-description p {
+    margin: 0 0 0.75em 0;          /* space between paragraphs */
+}
+
+/* =============================================================
+   12. RESOURCES CARD — link list + Education & Contact section
+   ============================================================= */
+.resources-card ul {
+    margin: 1rem 0 1.5rem 0;       /* space above and below the list */
+    padding-left: 2rem;             /* indent to give bullets visual room */
+}
+
+.resources-card li {
+    margin-bottom: 0.3rem;          /* compact spacing between list items */
+}
+
+.resources-card a {
+    color: var(--primary);          /* black link text matches body colour */
+    text-decoration: underline;     /* underline identifies links */
+    font-weight: 500;               /* medium weight – lighter than nav links */
+    font-size: 1rem;
+    display: inline;                /* inline prevents extra height between items */
+}
+
+.resources-card a:hover {
+    color: var(--secondary);        /* cyan on hover for interactivity feedback */
+}
+
+.resources-card h2:not(:first-child) {
+    padding: 0.5rem 1.5rem 0 1.5rem; /* align with list; top padding adds visual gap */
+    margin: 0.5rem 0 0.75rem 0;
+    font-size: 1.3rem;              /* sub-heading slightly smaller than card title */
+}
+
+.resources-card > p {
+    padding: 0 1.5rem;              /* align with heading and list text */
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* =============================================================
+   MISC
+   ============================================================= */
+.content-separator {
+    display: none;                  /* legacy element — hidden, kept for HTML compatibility */
+}
+
+/* =============================================================
+   13. FOOTER
+   Dark banner; turns orange on hover
+   ============================================================= */
 footer {
-    background: var(--primary); /* blue background */
-    color: var(--footer-text); /* pure white for best contrast */
-    text-align: center; /* center text */
-    padding: 1rem 0; /* vertical space */
-    font-size: 1rem; /* normal size */
-    letter-spacing: 0.5px; /* space between letters */
-    margin-top: 2rem; /* space above */
-    transition: background 0.3s, color 0.3s;
+    background: var(--primary);     /* black footer background */
+    color: var(--footer-text);      /* white text */
+    text-align: center;
+    padding: 1rem 0;                /* vertical breathing room */
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-top: 2rem;               /* space between last card and footer */
+    transition: background 0.3s, color 0.3s; /* smooth colour change on hover */
 }
 
-footer p, footer p span, #currentyear, #lastModified {
-    color: var(--footer-text) !important; /* ensure maximum contrast for all footer text and dynamic elements */
+/* Ensure JS-injected year/date spans stay white */
+footer p,
+footer p span,
+#currentyear,
+#lastModified {
+    color: var(--footer-text) !important; /* override any inherited colour */
     text-shadow: none;
 }
 
 footer:hover {
-    background: var(--accent); /* yellow on hover */
-    color: #222; /* dark text on yellow */
+    background: var(--accent);      /* orange on hover */
+    color: #222;                    /* dark text on orange for contrast */
 }
-footer:hover p, footer:hover p span {
-    color: #222;
+
+footer:hover p,
+footer:hover p span {
+    color: #222;                    /* match body text colour when footer is orange */
+}
+
+/* =============================================================
+   14. RESPONSIVE OVERRIDES
+   ============================================================= */
+
+/* --- Tablet / small desktop: stack grid columns --- */
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* single column layout */
+    }
+    .about-card,
+    .resources-card {
+        grid-column: 1;             /* both cards fill the single column */
+    }
+}
+
+/* --- Mobile: stack flex rows inside about-card --- */
+@media (max-width: 700px) {
+    /* Bio text stacks above profile photo */
+    .about-card .about-content {
+        flex-direction: column;
+    }
+    .about-card .about-img img {
+        max-width: 100%;            /* photo fills column width on mobile */
+        width: 100%;
+        height: auto;               /* preserve aspect ratio */
+    }
+
+    /* Flag stacks above description text */
+    .country-row {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1rem 1.5rem 1rem; /* tighter side padding on narrow screens */
+    }
+    .flag-col {
+        min-width: 0;
+        width: 100%;
+        align-items: flex-start;
+    }
+    .country-flag {
+        width: 100%;
+        max-width: 200px;           /* cap flag at 200px even on very narrow screens */
+    }
 }

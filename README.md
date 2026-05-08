@@ -13,10 +13,14 @@ This is my home page for the WDD 131 course at BYU-Idaho. It follows the [W01 As
 	- A footer with copyright and last modified date
 3. Wrote CSS/experiment in `styles/base.css` for layout, colors, fonts (using Google Fonts), and responsive design. (mostly googling it)
 4. Used Flexbox for navigation and Grid for the main layout.
-5. Added a hover effect to the navigation links.
-6. Wrote JavaScript in `scripts/getdates.js` to show the current year and last modified date in the footer, and a dynamic greeting in the header.
-7. Committed and pushed everything to GitHub.
-8. Set up GitHub Pages in repo settings so my site is live at: [https://kiddogreed.github.io/wdd131/](https://kiddogreed.github.io/wdd131/)
+5. Updated the **About Me** card layout to display content side-by-side:
+	- "About Me" section: bio text on the left, profile photo on the right
+	- "Makati Philippines" section: city/flag image on the left, description text on the right
+	- Both sections stack vertically on smaller screens (below 700px) using a responsive media query
+6. Added a hover effect to the navigation links.
+7. Wrote JavaScript in `scripts/getdates.js` to show the current year and last modified date in the footer, and a dynamic greeting in the header.
+8. Committed and pushed everything to GitHub.
+9. Set up GitHub Pages in repo settings so my site is live at: [https://kiddogreed.github.io/wdd131/](https://kiddogreed.github.io/wdd131/)
 
 
 
