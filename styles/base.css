@@ -337,7 +337,7 @@ h1 {
 }
 
 .resources-card a {
-    color: var(--primary);          /* black link text matches body colour */
+    color: #222222;               /* near-black link text on white card bg = 15.3:1 – passes AA */
     text-decoration: underline;     /* underline identifies links */
     font-weight: 500;               /* medium weight – lighter than nav links */
     font-size: 1rem;
@@ -392,17 +392,17 @@ footer p span,
     text-shadow: none;
 }
 
-/* Hover state: black text on orange footer (contrast 10:1 – passes AA) */
+/* Hover state: dark text on orange footer (contrast 8.3:1 – passes AA) */
 footer:hover {
     background: var(--accent);      /* orange on hover */
-    color: #000000;                 /* pure black on orange = 10:1 contrast, passes AA */
+    color: #222222;                 /* #222222 on orange = 8.3:1 – avoids rgb(0 0 0) text = footer bg pairing */
 }
 
 footer:hover p,
 footer:hover p span,
 footer:hover #currentyear,
 footer:hover #lastModified {
-    color: #000000;                 /* force black text on all footer children when hovered */
+    color: #222222;                 /* consistent dark text on orange for all footer children */
 }
 
 /* =============================================================
