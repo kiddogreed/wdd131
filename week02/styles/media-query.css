@@ -1,0 +1,14 @@
+/* Do not include a media query.
+Use the Google Font – Roboto in the body rule.
+The header, main, and footer
+Each have a maximum width of 640 pixels
+are centered on the page using margin: 1rem auto
+include a faint border
+use appropriate padding
+have a blueish background color of your choice */
+
+/* Declare the main element as a CSS grid with one column and an equal gap of 1rem */
+
+
+/* Declare the section elements to also have padding and a lighter or white background. */
+
