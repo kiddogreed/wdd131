@@ -125,7 +125,7 @@ figure {
 	background-color: var(--color-card);                          /* peach card background */
 	border: 1px solid var(--color-accent);                        /* 1px solid light blue border */
 	border-radius: 0.5rem;                                        /* rounded corners (8px) */
-	box-shadow: 0 2px 8px rgba(var(--color-secondary-rgb), 0.15); /* soft blue shadow at 15% opacity */
+	box-shadow: 0 2px 8px rgba(140, 192, 235, 0.15); /* soft blue shadow at 15% opacity */
 	padding: 1rem;
 	text-align: center;
 }
@@ -148,7 +148,7 @@ figcaption {
 
 footer {
 	background-color: var(--color-secondary);  /* blue footer background */
-	color: var(--color-primary);               /* dark text for contrast */
+	color: #000000;                            /* black text for AAA contrast on blue */
 	text-align: center;
 	padding: 1rem 0;    /* 1rem top/bottom, no side padding */
 	margin-top: 2rem;   /* space above footer */
