@@ -62,3 +62,5 @@ Made by John Russelle Domingo for WDD 131.
 - Practiced using JavaScript to change text on the page and debug code in the browser.
 - Learned how to check and clean up user input, and give feedback if something is wrong.
 - Improved my CSS for better layout and style on all devices.
+- Fixed a W3C CSS parse error in `temples.css` caused by using a CSS variable inside `rgba()`.
+- Fixed footer contrast on the temples page to meet WCAG AAA standards by switching text color to black.
