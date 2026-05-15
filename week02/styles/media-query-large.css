@@ -4,3 +4,15 @@
 Within that media query, change the header to a black background with white text.
 Change the main element to display two columns of equal size */
 
+
+/* Media query for viewport width 500px or greater */
+@media (min-width: 500px) {
+	header {
+		background-color: #000; /* Black background */
+		color: #fff;            /* White text */
+	}
+	main {
+		grid-template-columns: 1fr 1fr; /* Two equal columns */
+	}
+}
+

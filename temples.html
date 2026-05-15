@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Week 2 Assignment: Temples. A sample HTML document with media queries.">
+  <meta name="author" content="John Russelle Domingo">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" href="styles/temples.css">
+   <link rel="stylesheet" href="styles/temples-large.css">
+  <script src="scripts/temples.js" defer></script>
+  
+  <title>Temple Album</title>
+</head>
+<body>
+  <header>
+    <h1>Temple Album</h1>
+    <nav>
+      <!-- Hamburger button: visible only on mobile, toggles nav menu open/closed -->
+      <button id="hamburger-btn" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Old</a></li>
+        <li><a href="index.html">New</a></li>
+        <li><a href="index.html">Large</a></li>
+        <li><a href="index.html">Small</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Temple Gallery</h1>
+    <figure>
+      <img src="images/manila-ph-temple.jpg" alt="Manila Temple" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-ph-temple-night.jpg" alt="Manila Temple Night" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-2.jpg" alt="Temple 3" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-night-2.jpg" alt="Temple 4" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-3.jpg" alt="Temple 5" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-night-3.jpg" alt="Temple 6" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-ph-temple.jpg" alt="Temple 7" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-2.jpg" alt="Temple 8" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+    <figure>
+      <img src="images/manila-philippines-temple-night-3.jpg" alt="Temple 9" loading="lazy" width="400" height="250">
+      <figcaption>Manila Philippines Temple</figcaption>
+    </figure>
+  </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> John Russelle Domingo - Philippines</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

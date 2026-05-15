@@ -7,8 +7,34 @@ include a faint border
 use appropriate padding
 have a blueish background color of your choice */
 
+body {
+  font-family: 'Roboto', sans-serif; /* Use Google Roboto font for body text */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+header,
+main,
+footer {
+  max-width: 640px; /* Limit width to 640px for readability */
+  margin: 1rem auto; /* Center element with 1rem top/bottom margin and auto left/right */
+  border: 1px solid #b0c4de; /* Faint blueish border */
+  padding: 1rem; /* Add space inside the element */
+  background-color: #dce8f5; /* Blueish background color */
+}
+
 /* Declare the main element as a CSS grid with one column and an equal gap of 1rem */
 
+main {
+  display: grid; /* Use CSS Grid layout */
+  grid-template-columns: 1fr; /* Single column grid */
+  gap: 1rem; /* Equal gap of 1rem between grid items */
+}
 
 /* Declare the section elements to also have padding and a lighter or white background. */
+
+section {
+  padding: 1rem; /* Add space inside each section */
+  background-color: #f5f9ff; /* Lighter or white background for sections */
+}
 

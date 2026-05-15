@@ -24,6 +24,8 @@ This is my home page for the WDD 131 course at BYU-Idaho. It follows the [W01 As
 
 
 
+
+
 ## Testing and Auditing
 
 - I used my browser's DevTools (F12) to check for JavaScript errors and inspect the page.
@@ -50,3 +52,13 @@ Just open [https://kiddogreed.github.io/wdd131/](https://kiddogreed.github.io/wd
 ---
 
 Made by John Russelle Domingo for WDD 131.
+
+## Week 02: What I Did and Learned
+
+- Made a Book of Mormon Top 10 list app (add, delete, and check chapters) with HTML, CSS, and JavaScript.
+- Practiced making web pages look good on phones and computers using media queries and Google Fonts.
+- Built a hamburger menu for small screens and learned how to show/hide navigation with JavaScript.
+- Added a highlight to the current page in the menu (wayfinding).
+- Practiced using JavaScript to change text on the page and debug code in the browser.
+- Learned how to check and clean up user input, and give feedback if something is wrong.
+- Improved my CSS for better layout and style on all devices.

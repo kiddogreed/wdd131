@@ -1,0 +1,155 @@
+/*
+	Color Palette (CSS Variables)
+	--color-primary: Main text and header color (dark gray)
+	--color-secondary: Navigation and footer background (blue)
+	--color-accent: Accent color for hover and borders (light blue)
+	--color-card: Card/figure background (peach)
+	--color-light: Page background (light yellow)
+	--*-rgb: RGB values for use in rgba() and box-shadow
+*/
+:root {
+	--color-primary: #454545;             /* dark gray for text, header */
+	--color-secondary: #8CC0EB;           /* blue for nav, footer */
+	--color-accent: #BFDDF0;              /* light blue for hover, borders */
+	--color-card: #FFEBCC;               /* peach for card/figure backgrounds */
+	--color-light: #FFF9D2;              /* light yellow for page background */
+	--color-primary-rgb: 69, 69, 69;
+	--color-secondary-rgb: 140, 192, 235;
+	--color-accent-rgb: 191, 221, 240;
+	--color-light-rgb: 255, 249, 210;
+}
+
+/*
+	Reset default browser styles
+	box-sizing: border-box makes padding/border included in element width/height
+*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*
+	Mobile-first styles
+	rem = root em, relative to the root font size (default 1rem = 16px)
+	e.g. 2rem = 32px, 0.5rem = 8px
+*/
+
+body {
+	font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+	background-color: var(--color-light);  /* light yellow page background */
+	color: var(--color-primary);           /* dark gray default text */
+}
+
+header {
+	background-color: var(--color-primary);  /* dark gray header background */
+	color: var(--color-light);               /* light yellow text */
+	padding: 1.5rem 1rem 1rem;              /* 1.5rem top, 1rem sides, 1rem bottom */
+	text-align: center;
+}
+
+header h1 {
+	font-size: 2rem;   /* 2 x root font size = 32px at default */
+	color: var(--color-light);
+}
+
+nav {
+	background-color: var(--color-secondary);  /* blue nav background */
+}
+
+nav ul {
+	list-style: none;
+	display: none;             /* hidden by default on mobile — shown when .open is toggled */
+	flex-direction: column;    /* vertical stack on mobile */
+}
+
+/* Added by JS when hamburger is clicked — shows the nav menu */
+nav ul.open {
+	display: flex;
+}
+
+/* Hamburger button — only visible on mobile */
+.hamburger {
+	display: block;            /* visible on mobile */
+	background: none;
+	border: none;
+	font-size: 1.75rem;        /* large enough to tap easily */
+	color: var(--color-light); /* light text to match header/nav */
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	line-height: 1;
+}
+
+nav a {
+	display: block;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-weight: 400;          /* normal weight (700 = bold) */
+	color: var(--color-primary);
+	text-decoration: none;
+	padding: 0.5rem 1rem;      /* 0.5rem top/bottom, 1rem left/right */
+	transition: background 0.2s, color 0.2s;  /* smooth 0.2s hover animation */
+}
+
+/* Hover and focus styles for nav links */
+nav a:hover,
+nav a:focus {
+	background-color: var(--color-accent);  /* light blue on hover */
+	color: var(--color-primary);            /* dark text stays readable */
+	text-decoration: underline;
+}
+
+/* Highlighted style for the currently active nav link */
+nav a.active {
+	background-color: var(--color-secondary);  /* same blue as nav */
+	color: var(--color-primary);
+	font-weight: 700;  /* bold */
+}
+
+main {
+	max-width: 900px;            /* limit content width for readability */
+	margin: 0 auto;              /* auto left/right margin = centered horizontally */
+	padding: 1rem;
+	display: grid;               /* CSS Grid for figure layout */
+	grid-template-columns: 1fr;  /* 1fr = 1 fraction of available space; 1 column on mobile */
+	gap: 1.5rem;                 /* 1.5rem spacing between grid cells */
+}
+
+main h1 {
+	font-size: 2rem;
+	color: var(--color-primary);
+	text-align: center;
+	grid-column: 1 / -1;  /* span from column 1 to the last column (all columns) */
+}
+
+figure {
+	background-color: var(--color-card);                          /* peach card background */
+	border: 1px solid var(--color-accent);                        /* 1px solid light blue border */
+	border-radius: 0.5rem;                                        /* rounded corners (8px) */
+	box-shadow: 0 2px 8px rgba(var(--color-secondary-rgb), 0.15); /* soft blue shadow at 15% opacity */
+	padding: 1rem;
+	text-align: center;
+}
+
+figure img {
+	width: 100%;          /* fill the figure container */
+	max-width: 350px;     /* never wider than 350px */
+	margin: 0 auto;       /* center the image */
+	display: block;       /* removes inline spacing below image */
+	margin-bottom: 0.5rem;
+}
+
+figcaption {
+	font-size: 1.1rem;    /* slightly larger than body text */
+	font-family: 'Montserrat', Arial, sans-serif;
+	color: var(--color-primary);
+	font-weight: 700;     /* bold caption */
+	margin-top: 0.25rem;  /* small gap above caption */
+}
+
+footer {
+	background-color: var(--color-secondary);  /* blue footer background */
+	color: var(--color-primary);               /* dark text for contrast */
+	text-align: center;
+	padding: 1rem 0;    /* 1rem top/bottom, no side padding */
+	margin-top: 2rem;   /* space above footer */
+}

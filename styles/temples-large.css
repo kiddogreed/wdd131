@@ -1,0 +1,24 @@
+/* Larger Views ******************************/
+@media (min-width: 740px) {
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		text-align: left;
+	}
+
+	/* Hide hamburger button on larger screens — nav is always visible */
+	.hamburger {
+		display: none;
+	}
+
+	nav ul {
+		display: flex;             /* always show nav on desktop */
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+
+	main {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
