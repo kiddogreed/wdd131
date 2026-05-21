@@ -64,3 +64,14 @@ Made by John Russelle Domingo for WDD 131.
 - Improved my CSS for better layout and style on all devices.
 - Fixed a W3C CSS parse error in `temples.css` caused by using a CSS variable inside `rgba()`.
 - Fixed footer contrast on the temples page to meet WCAG AAA standards by switching text color to black.
+
+## Week 03: What I Did and Learned
+
+- Copied and organized starter CSS from CodePen into `styles/design.css`.
+- Fixed padding and color contrast issues in `.callout` containers to meet WCAG AA/AAA standards.
+- Left-aligned the `<h2>` heading and made it span two columns using CSS Grid.
+- Used the CSS Overview tool in DevTools to check and improve color contrast.
+- Replaced the deprecated `<marquee>` element with a modern `.banner` div for accessibility and usability.
+- Laid out `<main>` content in two columns using `grid-template-columns` and made the `<h2>` span both columns with `grid-column`.
+- Left-aligned the footer content for better readability.
+- Updated README.md to reflect all recent changes and improvements.
