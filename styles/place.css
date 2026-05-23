@@ -1,0 +1,111 @@
+:root {
+--primary-color: #048bbf;      /* Main blue */
+  --secondary-color: #8c9592;    /* Muted gray */
+  --accent-color: #c1d7e1;       /* Light blue */
+  --bg-color: #efdedf;           /* Light sand */
+  --card-bg: #fff;               /* Card background (can use --accent-color for more color) */
+  --footer-bg: #644b3c;          /* Footer brown */
+  --border-radius: 12px;
+  --spacing: 1.5rem;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --text-color: #222;
+}
+
+body {
+  font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: var(--spacing) 0 0.5rem 0;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+.hero {
+  margin-bottom: var(--spacing);
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--spacing);
+  padding: var(--spacing);
+}
+
+.data-card h2,
+.weather-card h2 {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: var(--primary-color);
+  color: #fff;
+  margin-top: var(--spacing);
+}
+
+/* Visually hidden class for accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* Large view (desktop) */
+@media (min-width: 700px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+
+  .card-group {
+    display: flex;
+    gap: var(--spacing);
+  }
+
+  .data-card,
+  .weather-card {
+    flex: 1 1 0;
+    margin-bottom: 0;
+  }
+
+  /* Weather icon as pseudo-element after heading */
+  .weather-card h2::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    width: 32px;
+    height: 32px;
+    background: url('../images/weather-icon-large.png') no-repeat center/contain;
+  }
+}
