@@ -1,16 +1,18 @@
+/* Colors, spacing, and styles reused throughout*/
 :root {
---primary-color: #048bbf;      /* Main blue */
-  --secondary-color: #8c9592;    /* Muted gray */
-  --accent-color: #c1d7e1;       /* Light blue */
-  --bg-color: #efdedf;           /* Light sand */
-  --card-bg: #fff;               /* Card background (can use --accent-color for more color) */
-  --footer-bg: #644b3c;          /* Footer brown */
-  --border-radius: 12px;
-  --spacing: 1.5rem;
-  --shadow: 0 2px 8px rgba(0,0,0,0.08);
-  --text-color: #222;
+  --primary-color: #048bbf;     /* Main blue - used in header, footer, and accents */
+  --secondary-color: #8c9592;   /* Muted gray - for secondary text or elements */
+  --accent-color: #c1d7e1;      /* Light blue - for backgrounds or highlights */
+  --bg-color: #efdedf;          /* Light sand - page background color */
+  --card-bg: #fff;              /* White - card background color */
+  --footer-bg: #644b3c;         /* Dark brown - reserved for footer styling */
+  --border-radius: 12px;        /* Rounded corners on cards */
+  --spacing: 1.5rem;            /* Standard spacing between elements */
+  --shadow: 0 2px 8px rgba(0,0,0,0.08); /* Subtle shadow on cards */
+  --text-color: #222;           /* Near-black - main text color */
 }
 
+/*  Sets font, background color, and removes default browser margins  */
 body {
   font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
   background: var(--bg-color);
@@ -19,6 +21,7 @@ body {
   padding: 0;
 }
 
+/* HEADER Top banner showing page title*/
 header {
   text-align: center;
   padding: var(--spacing) 0 0.5rem 0;
@@ -26,24 +29,35 @@ header {
   color: #fff;
 }
 
+/*MAIN CONTENT AREA Centers content and limits maximum width on large screens */
 main {
   max-width: 900px;
   margin: 0 auto;
   padding: var(--spacing);
 }
 
+/* HERO SECTION - MOBILE Stacks hero image above cards vertically Wide view overrides are in place-large.css */
 .hero {
   margin-bottom: var(--spacing);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-.hero img {
+/* Hero picture fills full width and sits above cards in mobile */
+.hero-img {
+  display: block;
+  width: 100%;
+}
+.hero-img img {
   width: 100%;
   height: auto;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
   display: block;
+  object-fit: cover;
 }
 
+/* CARDS - DATA AND WEATHER White boxes that hold table content */
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -52,22 +66,38 @@ main {
   padding: var(--spacing);
 }
 
+/* Card headings - centered with primary color */
 .data-card h2,
 .weather-card h2 {
   margin-top: 0;
   color: var(--primary-color);
   font-size: 1.3rem;
+  text-align: center;
 }
 
+/* WEATHER ICON - MOBILESVG icon centered below Weather heading Wide view uses a CSS pseudo-element instead
+   */
+.weather-card .weather-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+.weather-card .weather-img img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+/*  FOOTER Bottom banner with copyright info */
 footer {
   text-align: center;
   padding: 1rem 0;
-  background: var(--primary-color);
+  background: var(--footer-bg);
   color: #fff;
   margin-top: var(--spacing);
 }
 
-/* Visually hidden class for accessibility */
+/*VISUALLY HIDDEN Hides text visually but keeps it readable by screen readers */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -77,35 +107,4 @@ footer {
   overflow: hidden;
   clip: rect(0 0 0 0);
   border: 0;
-}
-
-/* Large view (desktop) */
-@media (min-width: 700px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing);
-  }
-
-  .card-group {
-    display: flex;
-    gap: var(--spacing);
-  }
-
-  .data-card,
-  .weather-card {
-    flex: 1 1 0;
-    margin-bottom: 0;
-  }
-
-  /* Weather icon as pseudo-element after heading */
-  .weather-card h2::after {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.5em;
-    width: 32px;
-    height: 32px;
-    background: url('../images/weather-icon-large.png') no-repeat center/contain;
-  }
 }

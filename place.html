@@ -9,62 +9,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css"> <!-- base/mobile CSS -->
     <link rel="stylesheet" href="styles/place-large.css"> <!-- large view CSS -->
-    <link rel="stylesheet" href="styles/place.css"> <!--  view CSS -->
     <script src="scripts/place.js" defer></script> <!-- JS for dynamic dates -->
-  <title>La Union</title>
+  <title>San Juan La Union</title>
 </head>
 <body>
   
    <header>
-    <h1>La Union</h1>
+    <h1>San Juan La Union</h1>
   </header>
 
 
  <main>
     <section class="hero">
       <h2 class="visually-hidden">Hero Image</h2>
-      <!-- Hero image placeholder -->
-       <!--image source//attribution https://www.pexels.com/photo/colorful-coastal-village-in-san-juan-puerto-rico-35092282/ -->
-      <img src="images/sanjuan-launion.webp" alt="Hero image of La Union" style="width:100%; display:block;">
-    </section>
-
-    <section class="card data-card">
-      <h2>Data</h2>
-      <table class="data-table">
-        <tbody>
-          <tr><td>Area</td><td>57.12 km² (22.05 sq mi)</td></tr>
-          <tr><td>Population</td><td>41,319 (2024 census); density ~723/km²</td></tr>
-          <tr><td>Capital</td><td>San Juan</td></tr>
-          <tr><td>Languages</td><td>Ilocano (native), Tagalog, English</td></tr>
-          <tr><td>Currency</td><td>Philippine Peso (₱, PHP)</td></tr>
-          <tr><td>Time zone</td><td>Philippine Standard Time (UTC+8)</td></tr>
-          <tr><td>Calling code</td><td>+63 (Philippines), local area code (072)</td></tr>
-          <tr><td>Internet TLD</td><td>.ph</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card weather-card">
-      <h2>Weather</h2>
-      <!-- Weather icon placeholder -->
-      <div class="weather-icon">
-        <img src="images/weather2.svg" alt="Weather icon" style="width:48px; height:48px;">
+      <picture class="hero-img">
+        <source srcset="images/sanjuan-launion.webp" media="(min-width: 900px)">
+        <source srcset="images/sanjuan-launion.webp" media="(min-width: 600px)">
+        <img src="images/sanjuan-launion.webp" alt="Coastal view of San Juan, La Union, Philippines" width="1200" height="800">
+      </picture>
+      <div class="card data-card">
+        <h2>Data</h2>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Area</td><td>57.12 km² (22.05 sq mi)</td></tr>
+            <tr><td>Population</td><td>41,319 (2024 census); density ~723/km²</td></tr>
+            <tr><td>Capital</td><td>San Juan</td></tr>
+            <tr><td>Languages</td><td>Ilocano (native), Tagalog, English</td></tr>
+            <tr><td>Currency</td><td>Philippine Peso (₱, PHP)</td></tr>
+            <tr><td>Time zone</td><td>Philippine Standard Time (UTC+8)</td></tr>
+            <tr><td>Calling code</td><td>+63 (Philippines), local area code (072)</td></tr>
+            <tr><td>Internet TLD</td><td>.ph</td></tr>
+          </tbody>
+        </table>
       </div>
-      <table class="weather-table">
-        <tbody>
-          <tr><td>Temperature</td><td>32 °C</td></tr>
-          <tr><td>Feels Like</td><td>43 °C (heat index)</td></tr>
-          <tr><td>Conditions</td><td>Mostly cloudy</td></tr>
-          <tr><td>Wind</td><td>9 km/h from the west (280°)</td></tr>
-          <tr><td>Wind Chill</td><td>Effectively hotter, not cooler </td></tr>
-        </tbody>
-      </table>
+      <div class="card weather-card">
+        <h2>Weather
+          <span class="weather-img" aria-label="weather icon">
+            <img src="images/weather.svg" alt="Mostly cloudy weather icon" width="48" height="48">
+          </span>
+        </h2>
+        <table class="weather-table">
+          <tbody>
+            <tr><td>Temperature</td><td>32 °C</td></tr>
+            <tr><td>Feels Like</td><td>43 °C (heat index)</td></tr>
+            <tr><td>Conditions</td><td>Mostly cloudy</td></tr>
+            <tr><td>Wind</td><td>9 km/h from the west (280°)</td></tr>
+            <tr><td>Wind Chill</td><td>Effectively hotter, not cooler </td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; <span id="currentyear"></span> La Union - Philippines. John Russelle Domingo.</p>
+    <p>&copy; <span id="currentyear"></span> San Juan, La Union - Philippines. John Russelle Domingo.</p>
      <p id="lastModified" alt="last updated"></p>
   </footer>
    
