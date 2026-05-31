@@ -6,3 +6,10 @@ https://codepen.io/BYU-Idaho/pen/JoPqzqQ
 
 
 https://byui-cse.github.io/wdd131-ww-course/week04/prepare-tables.html
+
+
+https://churchofjesuschristtemples.org/manila-philippines-temple/
+
+https://byui-cse.github.io/wdd131-ww-course/week04/assignment-04.html
+
+https://www.loom.com/share/af4f1ddda0b84204b214f72b544c02b3

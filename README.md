@@ -75,3 +75,42 @@ Made by John Russelle Domingo for WDD 131.
 - Laid out `<main>` content in two columns using `grid-template-columns` and made the `<h2>` span both columns with `grid-column`.
 - Left-aligned the footer content for better readability.
 - Updated README.md to reflect all recent changes and improvements.
+
+## Week 04: What I Did and Learned
+
+### Topics Covered
+- **W04 Project: Website Subject** — chose a subject for my personal website and built the page around it
+- **HTML advance Tables** — learned how to create and structure data tables using `<table>`, `<tr>`, `<th>`, and `<td>`
+- **Lazy Loading Images** — learned how to use `loading="lazy"` on `<img>` elements to defer off-screen image loading
+- **JavaScript Objects** — studied how to create and use JS objects to group related data under one variable
+- **JavaScript Array Functions** — practiced built-in array methods like `filter()`, `map()`, and `forEach()` to work with lists of data
+
+### What I Built
+- Created `filtered-temples.html` as an enhanced version of `temples.html` with dynamic, filterable temple cards.
+- Built a full JavaScript array of 12 temple objects, each with a name, location, dedication date, area, and image URL.
+- Used JavaScript to dynamically generate every temple card on the page — no hardcoded HTML cards.
+- Wired up the navigation links (Home, Old, New, Large, Small) to filter the temple array and redraw the cards.
+
+### JavaScript Concepts Practiced
+- **Arrays and objects** — stored all temple data in a structured list of JavaScript objects.
+- **`forEach` loop** — iterated over each temple to build its card elements one by one.
+- **`filter()`** — used array filtering to narrow down temples based on year, size, or location.
+- **`parseInt()`** — extracted just the year number from the dedication date string to compare dates.
+- **`createElement` and `appendChild`** — built HTML elements entirely in JavaScript and inserted them into the page.
+- **`addEventListener`** — listened for clicks on nav links and responded by re-rendering the cards.
+- **`DOMContentLoaded`** — learned to wait for the page to fully load before running JavaScript that touches the HTML.
+- **`data-filter` attributes** — used custom HTML attributes to pass filter values from the nav links to JavaScript.
+
+### CSS Concepts Practiced
+- **CSS Grid** — used `display: grid` and `repeat(3, 1fr)` to arrange cards in a responsive 3-column layout.
+- **`object-fit: cover`** — made all temple images the same height without stretching or distorting them.
+- **CSS variables** — reused color values across the stylesheet with `var(--name)`.
+- **Media queries** — applied different layouts for mobile (1 column) vs. desktop (3 columns).
+
+### Challenges Overcome
+- **Cards not showing at all** — the `nonutahLink.addEventListener` line was crashing the script because `#non-utah-link` didn't exist in the HTML. Since the error happened before `DOMContentLoaded`, no temples appeared. Fixed by wrapping it in a `null` check (`if (nonutahLink)`).
+- **Function name mismatch** — the event handler called `createTempleCards()` but the function was named `templeCard()`. Renamed everything to `createTempleCards` consistently.
+- **Static HTML blocking dynamic content** — leftover hardcoded `<figure>` elements from the original `temples.html` were still in `<main>`, causing duplicate and incorrect cards to appear. Removed them and replaced with a single `<div class="temple-cards"></div>`.
+- **Broken HTML file** — `filtered-temples.html` was missing its closing `</main>`, footer, `</body>`, and `</html>` tags, which caused layout and rendering issues. Completed the file structure.
+- **Uneven image sizes** — temple images from different sources had different aspect ratios, making the grid look messy. Fixed with `height: 200px` and `object-fit: cover` so every image fills its card uniformly.
+- **CSS not styling JS-generated cards** — the original CSS had styles for `<figure>` elements but the JS created `<section>` elements. Added `.temple-cards section` styles to match the card look.

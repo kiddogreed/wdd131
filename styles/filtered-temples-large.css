@@ -1,0 +1,42 @@
+/* Larger Views ******************************/
+/*
+	This file only applies when the screen is 740px wide or wider (tablets, laptops, desktops).
+	Everything inside the @media block overrides or adds to the mobile styles in filtered-temples.css.
+	Think of it as: "if the screen is big enough, use THESE rules instead."
+*/
+@media (min-width: 740px) {
+
+	/* On large screens, the header switches from stacked (centered) to side-by-side layout.
+	   The title sits on the left, and the nav links sit on the right. */
+	header {
+		display: flex;                  /* lay children out in a row */
+		align-items: center;            /* vertically center the title and nav */
+		justify-content: space-between; /* push title to the left, nav to the right */
+		text-align: left;
+	}
+
+	/* Hide hamburger button on larger screens — nav is always visible */
+	/* The ☰ button is only needed on mobile where the menu is hidden by default */
+	.hamburger {
+		display: none;
+	}
+
+	/* On large screens, show the nav links in a horizontal row instead of a vertical list */
+	nav ul {
+		display: flex;             /* always show nav on desktop */
+		flex-direction: row;       /* line links up left to right */
+		justify-content: flex-end; /* push the links to the right side */
+	}
+
+	/* Switch the main content area to a 3-column grid on large screens.
+	   repeat(3, 1fr) = 3 equal columns, each taking up 1/3 of the available width. */
+	main {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	/* Switch the temple cards container to 3 columns as well,
+	   so each row shows 3 temple cards side by side. */
+	.temple-cards {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

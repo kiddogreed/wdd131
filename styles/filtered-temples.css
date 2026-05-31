@@ -1,0 +1,254 @@
+/*
+	Color Palette (CSS Variables)
+	--color-primary: Main text and header color (dark gray)
+	--color-secondary: Navigation and footer background (blue)
+	--color-accent: Accent color for hover and borders (light blue)
+	--color-card: Card/figure background (peach)
+	--color-light: Page background (light yellow)
+	--*-rgb: RGB values for use in rgba() and box-shadow
+*/
+
+/*
+	:root is the very top of the page — like a settings panel.
+	Anything defined here with -- in front of the name is a "CSS variable".
+	Instead of typing the same color code over and over, you define it once here
+	and reuse it anywhere on the page with var(--name).
+	If you ever want to change the color scheme, you only update it in one place.
+*/
+:root {
+	--color-primary: #454545;             /* dark gray for text, header */
+	--color-secondary: #8CC0EB;           /* blue for nav, footer */
+	--color-accent: #BFDDF0;              /* light blue for hover, borders */
+	--color-card: #FFEBCC;               /* peach for card/figure backgrounds */
+	--color-light: #FFF9D2;              /* light yellow for page background */
+	--color-primary-rgb: 69, 69, 69;    /* same as #454545, split into R, G, B numbers */
+	--color-secondary-rgb: 140, 192, 235; /* same as #8CC0EB */
+	--color-accent-rgb: 191, 221, 240;    /* same as #BFDDF0 */
+	--color-light-rgb: 255, 249, 210;     /* same as #FFF9D2 — used for rgba() transparency */
+}
+
+/*
+	Reset default browser styles
+	box-sizing: border-box makes padding/border included in element width/height
+*/
+
+/*
+	Every browser adds its own default spacing (margin/padding) to elements.
+	This rule removes all of that so we start with a clean, predictable slate.
+	box-sizing: border-box means: when you set a width of 300px, the padding and border
+	are included IN that 300px — not added on top of it. Much easier to work with.
+*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*
+	Mobile-first styles
+	rem = root em, relative to the root font size (default 1rem = 16px)
+	e.g. 2rem = 32px, 0.5rem = 8px
+*/
+
+/*
+	"Mobile-first" means we write styles for small screens (phones) first.
+	Then in the separate large-screen CSS file, we override/add styles for bigger screens.
+	This approach is better because most people browse on phones.
+*/
+
+/* ── Body ─────────────────────────────────────────────────────── */
+/* Sets the font and background for the entire page */
+body {
+	font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+	background-color: var(--color-light);  /* light yellow page background */
+	color: var(--color-primary);           /* dark gray default text */
+}
+
+/* ── Header ───────────────────────────────────────────────────── */
+/* The dark bar at the top of the page that holds the site title */
+header {
+	background-color: var(--color-primary);  /* dark gray header background */
+	color: var(--color-light);               /* light yellow text */
+	padding: 1.5rem 1rem 1rem;              /* 1.5rem top, 1rem sides, 1rem bottom */
+	text-align: center;
+}
+
+/* Makes the "Temple Album" title text big and light-colored */
+header h1 {
+	font-size: 2rem;   /* 2 x root font size = 32px at default */
+	color: var(--color-light);
+}
+
+/* ── Navigation ───────────────────────────────────────────────── */
+/* The blue bar that holds the menu links (Home, Old, New, Large, Small) */
+nav {
+	background-color: var(--color-secondary);  /* blue nav background */
+}
+
+/* The <ul> list of nav links — hidden on mobile by default, shown when hamburger is tapped */
+nav ul {
+	list-style: none;
+	display: none;             /* hidden by default on mobile — shown when .open is toggled */
+	flex-direction: column;    /* vertical stack on mobile */
+}
+
+/* Added by JS when hamburger is clicked — shows the nav menu */
+nav ul.open {
+	display: flex;
+}
+
+/* Hamburger button — only visible on mobile */
+/* This is the ☰ button that appears on small screens to toggle the nav open/closed */
+.hamburger {
+	display: block;            /* visible on mobile */
+	background: none;
+	border: none;
+	font-size: 1.75rem;        /* large enough to tap easily */
+	color: var(--color-light); /* light text to match header/nav */
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+	line-height: 1;
+}
+
+/* Styles for each individual nav link (Home, Old, New, etc.) */
+/* display: block makes the whole row clickable, not just the text */
+nav a {
+	display: block;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-weight: 400;          /* normal weight (700 = bold) */
+	color: var(--color-primary);
+	text-decoration: none;
+	padding: 0.5rem 1rem;      /* 0.5rem top/bottom, 1rem left/right */
+	transition: background 0.2s, color 0.2s;  /* smooth 0.2s hover animation */
+}
+
+/* Hover and focus styles for nav links */
+nav a:hover,
+nav a:focus {
+	background-color: var(--color-accent);  /* light blue on hover */
+	color: var(--color-primary);            /* dark text stays readable */
+	text-decoration: underline;
+}
+
+/* Highlighted style for the currently active nav link */
+nav a.active {
+	background-color: var(--color-secondary);  /* same blue as nav */
+	color: var(--color-primary);
+	font-weight: 700;  /* bold */
+}
+
+/* ── Main Content Area ────────────────────────────────────────── */
+/*
+	CSS Grid turns the main area into a grid of columns.
+	On mobile: 1 column. On desktop (in large CSS): 3 columns.
+	"1fr" = "1 fraction" — the column takes up all available space.
+*/
+main {
+	max-width: 900px;            /* limit content width for readability */
+	margin: 0 auto;              /* auto left/right margin = centered horizontally */
+	padding: 1rem;
+	display: grid;               /* CSS Grid for figure layout */
+	grid-template-columns: 1fr;  /* 1fr = 1 fraction of available space; 1 column on mobile */
+	gap: 1.5rem;                 /* 1.5rem spacing between grid cells */
+}
+
+main h1 {
+	font-size: 2rem;
+	color: var(--color-primary);
+	text-align: center;
+	grid-column: 1 / -1;  /* span from column 1 to the last column (all columns) */
+}
+
+figure {
+	background-color: var(--color-card);                          /* peach card background */
+	border: 1px solid var(--color-accent);                        /* 1px solid light blue border */
+	border-radius: 0.5rem;                                        /* rounded corners (8px) */
+	box-shadow: 0 2px 8px rgba(140, 192, 235, 0.15); /* soft blue shadow at 15% opacity */
+	padding: 1rem;
+	text-align: center;
+}
+
+figure img {
+	width: 100%;          /* fill the figure container */
+	max-width: 350px;     /* never wider than 350px */
+	margin: 0 auto;       /* center the image */
+	display: block;       /* removes inline spacing below image */
+	margin-bottom: 0.5rem;
+}
+
+figcaption {
+	font-size: 1.1rem;    /* slightly larger than body text */
+	font-family: 'Montserrat', Arial, sans-serif;
+	color: var(--color-primary);
+	font-weight: 700;     /* bold caption */
+	margin-top: 0.25rem;  /* small gap above caption */
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+/* The blue bar at the bottom of the page with the copyright and last-modified date */
+footer {
+	background-color: var(--color-secondary);  /* blue footer background */
+	color: #000000;                            /* black text for AAA contrast on blue */
+	text-align: center;
+	padding: 1rem 0;    /* 1rem top/bottom, no side padding */
+	margin-top: 2rem;   /* space above footer */
+}
+
+/* ── Temple Cards Grid (dynamically generated by JS) ── */
+/*
+	.temple-cards is the container <div> that JavaScript fills with temple cards.
+	It is itself a grid, so the section cards inside it line up in columns.
+	grid-column: 1 / -1 means "stretch across ALL columns" of the parent main grid.
+*/
+.temple-cards {
+	grid-column: 1 / -1;          /* span all columns of parent main grid */
+	display: grid;
+	grid-template-columns: 1fr;   /* 1 column on mobile */
+	gap: 1.5rem;
+}
+
+/*
+	Each individual temple card — created by JavaScript as a <section> element.
+	Gives it a peach background, rounded corners, a subtle shadow, and centered text.
+	Think of it like a photo card you'd hang on a wall.
+*/
+.temple-cards section {
+	background-color: var(--color-card);
+	border: 1px solid var(--color-accent);
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 8px rgba(var(--color-secondary-rgb), 0.15);
+	padding: 1rem;
+	text-align: center;
+}
+
+/* The temple name — displayed as a bold heading at the top of each card */
+.temple-cards section h2 {
+	font-size: 1.1rem;
+	font-family: 'Montserrat', Arial, sans-serif;
+	font-weight: 700;
+	color: var(--color-primary);
+	margin-top: 0.5rem;
+}
+
+/* The detail lines under the name: location, dedication date, and area */
+/* Slightly smaller font so the image stands out as the main focus */
+.temple-cards section p {
+	font-size: 0.85rem;
+	color: var(--color-primary);
+	margin-top: 0.15rem;
+}
+
+/*
+	The temple photo inside each card.
+	width: 100% — stretches the image to fill the full card width.
+	height: 200px — fixed height so ALL images are the same size, no matter the original.
+	object-fit: cover — crops the image from the center to fill the box without stretching.
+	  (Like zooming a photo to fit a frame — some edges may be cut off, but it always looks clean.)
+*/
+.temple-cards section img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	display: block;
+	border-radius: 0.25rem;
+}
