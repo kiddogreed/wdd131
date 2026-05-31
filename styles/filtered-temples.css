@@ -216,7 +216,7 @@ footer {
 	background-color: var(--color-card);
 	border: 1px solid var(--color-accent);
 	border-radius: 0.5rem;
-	box-shadow: 0 2px 8px rgba(var(--color-secondary-rgb), 0.15);
+	box-shadow: 0 2px 8px rgba(140, 192, 235, 0.15);
 	padding: 1rem;
 	text-align: center;
 }
