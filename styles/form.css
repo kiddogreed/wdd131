@@ -1,0 +1,279 @@
+/*
+ * form.css — Product Review Form Styles
+ * Author : John Russelle Domingo
+ * Course : WDD 131 – Dynamic Web Fundamentals
+ */
+
+/* ── Design tokens ── */
+:root {
+  --bg:         #0d0630;
+  --surface:    #18314f;
+  --border:     #384e77;
+  --accent:     #8bbeb2;
+  --text:       #e6f9af;
+  --text-muted: #a8c8c0;
+  --danger:     #ff6b6b;
+  --font-head:  'Montserrat', sans-serif;
+  --font-body:  'Roboto', sans-serif;
+  --radius:     8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Base ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--border);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header h1 {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* ── Main ── */
+main {
+  flex: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main h2 {
+  font-family: var(--font-head);
+  color: var(--accent);
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Form card ── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+/* ── Field groups ── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.4rem;
+}
+
+.field-group:last-of-type { margin-bottom: 0; }
+
+/* ── Labels ── */
+label, legend {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ── Inputs, select, textarea ── */
+input[type="date"],
+input[type="text"],
+select,
+textarea {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Fix date picker icon color in Chromium */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* ── Select placeholder styling ── */
+select option[disabled] { color: var(--text-muted); }
+
+/* ── Rating fieldset ── */
+.rating-fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.rating-fieldset legend {
+  padding: 0 0.4rem;
+}
+
+/* Star radio buttons displayed inline */
+.star-group {
+  display: flex;
+  flex-direction: row-reverse; /* CSS star trick: reverse so :checked ~ sibling works */
+  gap: 0.25rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.star-group input[type="radio"] {
+  display: none; /* hide native radio; label acts as the control */
+}
+
+.star-group label {
+  font-size: 2rem;
+  color: var(--border);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s;
+  font-weight: 400; /* override bold from generic label rule */
+  letter-spacing: 0;
+}
+
+/* Highlight selected star and all siblings to its right (visually to its left due to flex-reverse) */
+.star-group input[type="radio"]:checked ~ label,
+.star-group label:hover,
+.star-group label:hover ~ label {
+  color: var(--accent);
+}
+
+/* ── Checkboxes ── */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.checkbox-item input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Override generic label style for checkbox labels */
+.checkbox-item label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+/* ── Optional badge ── */
+.optional {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: 0.35rem;
+  font-family: var(--font-body);
+}
+
+/* ── Submit button ── */
+.btn-submit {
+  display: block;
+  width: 100%;
+  margin-top: 1.8rem;
+  padding: 0.75rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-submit:hover { opacity: 0.85; }
+
+/* ── Confirmation page ── */
+.confirmation-card {
+  text-align: center;
+}
+
+.confirmation-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-card .back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--accent);
+  font-family: var(--font-head);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.confirmation-card .back-link:hover { text-decoration: underline; }
+
+.review-counter {
+  margin-top: 1rem;
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--surface);
+  border-top: 2px solid var(--border);
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+}
+
+/* ── Responsive: wider layout on desktop ── */
+@media (min-width: 600px) {
+  main { padding: 0 2rem; }
+}
