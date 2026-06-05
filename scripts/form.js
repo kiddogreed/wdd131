@@ -1,5 +1,5 @@
 // form.js
-// Purpose: Populate the product select dynamically from the products array.
+// Purpose: Populate the product select dynamically and set footer dates.
 
 // Product data source
 const products = [
@@ -19,3 +19,10 @@ products.forEach(product => {
   option.textContent = product.name;   // name displayed to the user
   productSelect.appendChild(option);
 });
+
+// Set footer copyright year and last-modified date
+const yearEl = document.getElementById('currentyear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+const modEl = document.getElementById('lastModified');
+if (modEl) modEl.textContent = 'Last Modified: ' + document.lastModified;
