@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="John D's Web Gatherer – W05 Website Planning Document for a static web scraping educational site.">
+  <meta name="author" content="John Russelle Domingo">
+
+  <!-- Google Fonts: Montserrat (headings) + Roboto (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Project-specific styles -->
+  <link rel="stylesheet" href="styles/siteplan.css">
+  <title>John D's Web Gatherer – Site Plan</title>
+</head>
+<body>
+
+  <!-- Site header: logo icon, site name, and assignment tagline -->
+  <header>
+    <div class="logo">
+      <span class="logo-icon">🕷️</span>
+      <h1>John D's Web Gatherer</h1>
+    </div>
+    <p class="tagline">WDD131 – Website Planning Document</p>
+  </header>
+
+  <!-- Main content: six site-plan sections -->
+  <main>
+
+    <!-- 1. Site Name: project title, rationale, and optional domain -->
+    <section id="site-name">
+      <h2>Site Name</h2>
+      <div class="card">
+        <h3>John D's Web Gatherer</h3>
+        <p>
+          "John D's Web Gatherer" is a personal, hands-on learning resource built
+          entirely with <strong>HTML, CSS, and JavaScript</strong> — no frameworks,
+          no TypeScript, no Python — demonstrating mastery of core front-end
+          fundamentals. The name reflects the author's identity (John D.) and the
+          site's mission: teaching how to gather data from the web. Future versions
+          may expand with Python or frameworks, but this release is intentionally
+          pure HTML/CSS/JS.
+        </p>
+        <p class="domain">Optional domain: <code>jd-webgatherer.dev</code></p>
+      </div>
+    </section>
+
+    <!-- 2. Site Purpose: scope, content, and audience description -->
+    <section id="site-purpose">
+      <h2>Site Purpose</h2>
+      <div class="card">
+        <p>
+          John D's Web Gatherer is a beginner-friendly educational website focused on static
+          web scraping. The site explains what static web scraping is, how it works,
+          and the tools commonly used — such as Python's <strong>requests</strong>
+          and <strong>BeautifulSoup</strong> libraries. It provides simple, annotated
+          code examples, best practices for organizing scraped data (CSV, JSON), and
+          a clear overview of ethical and legal considerations so newcomers can
+          scrape responsibly.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Scenarios: visitor questions that drive site content -->
+    <section id="scenarios">
+      <h2>Scenarios</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <strong>Scenario 1:</strong> "I've heard about web scraping but don't
+            know where to start. What tools do I need and how do I write my first
+            scraper?"
+          </li>
+          <li>
+            <strong>Scenario 2:</strong> "Is web scraping legal? What ethical rules
+            should I follow before scraping someone's website?"
+          </li>
+          <li>
+            <strong>Scenario 3:</strong> "I scraped some data but now it's one big
+            mess. How do I clean and save it in an organized way?"
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Color Schema: live swatches with color names, hex codes, and usage roles -->
+    <section id="color-schema">
+      <h2>Color Schema</h2>
+      <div class="card">
+        <p>
+          A deep, dark tech-inspired palette that conveys professionalism and focus —
+          ideal for a programming / data-skills learning site.
+        </p>
+        <div class="color-swatches">
+          <div class="swatch" style="background:#0d0630; color:#e6f9af;">
+            <span class="color-name">Dark Amethyst</span>
+            <span class="color-hex">#0d0630</span>
+            <span class="color-use">Page background</span>
+          </div>
+          <div class="swatch" style="background:#18314f; color:#e6f9af;">
+            <span class="color-name">Deep Space Blue</span>
+            <span class="color-hex">#18314f</span>
+            <span class="color-use">Card / section backgrounds</span>
+          </div>
+          <div class="swatch" style="background:#384e77; color:#e6f9af;">
+            <span class="color-name">Dusk Blue</span>
+            <span class="color-hex">#384e77</span>
+            <span class="color-use">Borders, dividers, accents</span>
+          </div>
+          <div class="swatch" style="background:#8bbeb2; color:#0d0630;">
+            <span class="color-name">Muted Teal</span>
+            <span class="color-hex">#8bbeb2</span>
+            <span class="color-use">Headings (h1, h2, h3)</span>
+          </div>
+          <div class="swatch" style="background:#e6f9af; color:#0d0630;">
+            <span class="color-name">Lime Cream</span>
+            <span class="color-hex">#e6f9af</span>
+            <span class="color-use">Body text, highlights</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Typography: font choices with live preview samples -->
+    <section id="typography">
+      <h2>Typography</h2>
+      <div class="card">
+
+        <div class="font-block">
+          <h3>Montserrat</h3>
+          <p class="font-role">Used for: h1, h2, h3 headings · navigation labels · site name</p>
+          <div class="font-preview">
+            <p class="preview-heading">Static Web Scraping</p>
+            <p class="preview-subheading">Getting Started with BeautifulSoup</p>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="font-block">
+          <h3>Roboto</h3>
+          <p class="font-role">Used for: body text · paragraphs · list items · footer</p>
+          <div class="font-preview">
+            <p class="preview-body">
+              Web scraping is the process of automatically extracting data from
+              websites using code. This site walks you through the fundamentals
+              step by step, from making HTTP requests to storing clean data.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Wireframes: CSS-drawn mobile and desktop layout sketches -->
+    <section id="wireframes">
+      <h2>Wireframes</h2>
+      <div class="card">
+        <div class="wireframes-container">
+
+          <!-- Mobile wireframe: stacked layout with hamburger nav -->
+          <div class="wireframe-wrapper">
+            <h3>Mobile View</h3>
+            <div class="mobile-wireframe">
+              <div class="wf-header">
+                <span class="wf-label">John D's Web Gatherer</span>
+                <span class="wf-hamburger">☰</span>
+              </div>
+              <div class="wf-hero">Hero Image / Title</div>
+              <div class="wf-section">What is Web Scraping?</div>
+              <div class="wf-section">Tools &amp; Libraries</div>
+              <div class="wf-section">Code Example</div>
+              <div class="wf-section">Ethical Guidelines</div>
+              <div class="wf-footer">Footer / Contact</div>
+            </div>
+          </div>
+
+          <!-- Desktop wireframe: horizontal nav, 3-column content row -->
+          <div class="wireframe-wrapper">
+            <h3>Desktop View</h3>
+            <div class="desktop-wireframe">
+              <div class="wf-header-desktop">
+                <span class="wf-label">John D's Web Gatherer 🕷️</span>
+                <span class="wf-nav">Home &nbsp;|&nbsp; Basics &nbsp;|&nbsp; Tools &nbsp;|&nbsp; Examples &nbsp;|&nbsp; Ethics</span>
+              </div>
+              <div class="wf-hero-desktop">Hero Banner – "Learn Static Web Scraping"</div>
+              <div class="wf-cols">
+                <div class="wf-col">What is Web Scraping?</div>
+                <div class="wf-col">Tools &amp; Libraries</div>
+                <div class="wf-col">Code Example</div>
+              </div>
+              <div class="wf-section-wide">Ethical Guidelines &amp; Best Practices</div>
+              <div class="wf-footer">Footer / Contact Info / Links</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: copyright, author, and course label -->
+  <footer>
+    <p>
+      John D's Web Gatherer &copy; <span id="year"></span> &nbsp;|&nbsp;
+      John Russelle Domingo &nbsp;|&nbsp; WDD131 Site Plan
+    </p>
+  </footer>
+
+  <!-- Inline script: injects current year into copyright notice -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
