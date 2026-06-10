@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact John D's Web Gatherer — ask questions, share feedback, or subscribe to new scraping guides.">
+  <meta name="author" content="John Russelle Domingo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/large.css">
+  <title>Contact – John D's Web Gatherer</title>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="John D's Web Gatherer – home">
+        <span class="logo-icon" aria-hidden="true">🕷️</span>
+        <span class="logo-text">John D's Web Gatherer</span>
+      </a>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Toggle navigation"
+      >☰</button>
+    </div>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-section">
+
+      <div class="form-intro">
+        <h1 class="section-title">Contact Us</h1>
+        <p>
+          Have a question about web scraping, spotted an error, or want to suggest a tool or topic?
+          Fill out the form below. Your draft is saved automatically so you won't lose your work.
+        </p>
+      </div>
+
+      <form id="contact-form" novalidate aria-label="Contact form">
+
+        <fieldset>
+          <legend>About You</legend>
+
+          <div class="form-group">
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              placeholder="Jane Smith"
+              required
+              aria-required="true"
+              aria-describedby="name-error"
+            >
+            <span class="field-error" id="name-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="jane@example.com"
+              required
+              aria-required="true"
+              aria-describedby="email-error"
+            >
+            <span class="field-error" id="email-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Scraping Experience <span aria-hidden="true">*</span></label>
+            <select
+              id="experience"
+              name="experience"
+              required
+              aria-required="true"
+              aria-describedby="experience-error"
+            >
+              <option value="">-- Select your level --</option>
+              <option value="none">No experience yet</option>
+              <option value="beginner">Beginner (followed a tutorial or two)</option>
+              <option value="intermediate">Intermediate (built my own scrapers)</option>
+              <option value="advanced">Advanced (production-scale projects)</option>
+            </select>
+            <span class="field-error" id="experience-error" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your Message</legend>
+
+          <div class="form-group">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="What would you like to know or share?"
+              required
+              aria-required="true"
+              aria-describedby="message-error"
+            ></textarea>
+            <span class="field-error" id="message-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <span style="font-size:0.88rem; color:var(--teal); font-family:var(--font-heading); letter-spacing:0.3px; font-weight:700">
+              Topics I'm interested in
+            </span>
+            <div class="checkbox-group" role="group" aria-label="Topics of interest">
+              <label class="checkbox-label">
+                <input type="checkbox" name="topics" value="python"> Python scraping guides
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="topics" value="javascript"> JavaScript / Node.js scraping
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="topics" value="ethics"> Ethics &amp; legal aspects
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="topics" value="data"> Data cleaning &amp; storage
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:0.25rem">
+            <label class="checkbox-label">
+              <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+              Subscribe to updates (no spam, ever)
+            </label>
+          </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Send Message</button>
+          <button type="reset" class="btn btn-outline">Clear Form</button>
+        </div>
+
+      </form>
+
+      <!-- Success message (shown after valid submission) -->
+      <div
+        class="success-message"
+        id="success-message"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span class="success-icon" aria-hidden="true">✅</span>
+        <p>
+          Thanks, <strong class="success-name"></strong>!
+          Your message has been received. We'll get back to you soon.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      John D's Web Gatherer &copy; <span id="year"></span>
+      &nbsp;&middot;&nbsp; John Russelle Domingo
+      &nbsp;&middot;&nbsp; WDD131
+      &nbsp;&middot;&nbsp; <a href="references.html">References</a>
+    </p>
+  </footer>
+
+  <script src="scripts/site.js"></script>
+  <script src="scripts/contact.js"></script>
+</body>
+</html>

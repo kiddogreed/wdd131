@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="John D's Web Gatherer – a beginner-friendly guide to static web scraping with tools, techniques, and ethical best practices.">
+  <meta name="author" content="John Russelle Domingo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/large.css">
+  <script src="scripts/site.js" defer></script>
+  <title>Home – John D's Web Gatherer</title>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="John D's Web Gatherer – home">
+        <span class="logo-icon" aria-hidden="true">🕷️</span>
+        <span class="logo-text">John D's Web Gatherer</span>
+      </a>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Toggle navigation"
+      >☰</button>
+    </div>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <span class="hero-icon" aria-hidden="true">🕷️</span>
+        <h1 id="hero-heading">John D's Web Gatherer</h1>
+        <p>Your beginner-friendly guide to static web scraping — tools, code examples, and responsible practices.</p>
+        <a class="btn" href="tools.html">Explore the Tools</a>
+      </div>
+    </section>
+
+    <!-- ── What is Web Scraping ── -->
+    <div class="section">
+      <h2 class="section-title">What is Web Scraping?</h2>
+      <p>
+        Web scraping is the automated process of extracting data from websites. Instead of copying
+        and pasting information by hand, you write a small program that fetches a page, reads its
+        HTML, and pulls out exactly what you need — prices, headlines, research records, and more.
+      </p>
+
+      <div class="diagram-wrap" style="margin-top:1.5rem">
+        <img
+          src="images/scraping-flow.svg"
+          alt="Data flow diagram: Your Script sends HTTP GET to Web Server, receives HTML Response, feeds HTML Parser, outputs Clean Data as CSV or JSON"
+          width="900"
+          height="180"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="info-box">
+        <strong>Note:</strong> This site focuses on <em>static</em> scraping — pages whose content
+        is present in the initial HTML response. For JavaScript-rendered sites you need a headless
+        browser such as Puppeteer or Playwright.
+      </div>
+
+      <!-- How it works: numbered steps -->
+      <h3 style="font-family:var(--font-heading); color:var(--teal); margin:2rem 0 1rem; font-size:1rem; letter-spacing:1.5px; text-transform:uppercase">
+        How It Works
+      </h3>
+      <ol class="steps">
+        <li class="step">
+          <div>
+            <h4>Send an HTTP Request</h4>
+            <p>Your script sends a GET request to the target URL, exactly like your browser does when you visit a site.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div>
+            <h4>Receive the HTML</h4>
+            <p>The server responds with raw HTML markup — the same document your browser would normally render visually.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div>
+            <h4>Parse the Document</h4>
+            <p>A parser like BeautifulSoup converts the raw HTML into a tree structure you can query with tag names or CSS selectors.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div>
+            <h4>Extract &amp; Store the Data</h4>
+            <p>Pull out the fields you need — text, links, attributes — and write them to a CSV or JSON file for later analysis.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- ── Feature cards ── -->
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">Start Learning</h2>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🔧</div>
+          <h3>Tools &amp; Libraries</h3>
+          <p>Explore the most popular scraping libraries for Python, Node.js, and the command line — filterable by category.</p>
+          <a class="btn btn-outline" href="tools.html">Browse Tools</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">⚖️</div>
+          <h3>Ethical Guidelines</h3>
+          <p>Learn about <code style="background:var(--border);padding:0.1rem 0.35rem;border-radius:4px">robots.txt</code>, rate limiting, Terms of Service, and how to scrape responsibly.</p>
+          <a class="btn btn-outline" href="#ethics">Read Guidelines</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">💬</div>
+          <h3>Ask a Question</h3>
+          <p>Have a specific scraping question or want to suggest a new topic? Reach out through the contact form.</p>
+          <a class="btn btn-outline" href="contact.html">Get in Touch</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Learning progress tracker ── -->
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">Track Your Learning</h2>
+      <p style="margin-bottom:1rem; opacity:0.85">
+        Check off topics as you work through them. Your progress is saved in your browser and persists between visits.
+      </p>
+      <div id="progress-container"></div>
+    </div>
+
+    <!-- ── Ethics section ── -->
+    <div class="section" id="ethics">
+      <h2 class="section-title">Ethics &amp; Best Practices</h2>
+      <p style="margin-bottom:1.5rem">
+        Just because you <em>can</em> scrape a site doesn't always mean you <em>should</em>.
+        Following these guidelines keeps you legal, respectful, and out of trouble.
+      </p>
+
+      <div class="warn-box">
+        <strong>Always check first:</strong> review the site's
+        <code style="background:var(--bg);padding:0.1rem 0.35rem;border-radius:4px">robots.txt</code>
+        and Terms of Service before writing a single line of scraping code.
+      </div>
+
+      <div class="faq-list" style="margin-top:1.5rem">
+
+        <details class="faq-item">
+          <summary>What is <code>robots.txt</code> and why does it matter?</summary>
+          <div class="faq-answer">
+            <code>robots.txt</code> is a file at the root of most websites
+            (e.g. <code>https://example.com/robots.txt</code>) that tells automated bots which
+            paths they are allowed or disallowed from accessing. Respecting it is considered
+            standard netiquette, and ignoring it can violate the site's Terms of Service.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How fast should I send requests?</summary>
+          <div class="faq-answer">
+            Sending hundreds of requests per second can effectively DDoS a small site. Add a delay
+            of at least 1–2 seconds between requests (<code>time.sleep(1)</code> in Python), or use
+            Scrapy's <code>DOWNLOAD_DELAY</code> setting. Being polite protects the site and you.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is web scraping legal?</summary>
+          <div class="faq-answer">
+            Legality varies by jurisdiction, intent, and the site's ToS. Scraping publicly
+            accessible, non-personal data for educational or personal research is generally
+            tolerated. Scraping personal data or copyrighted content for commercial use raises
+            legal concerns. When in doubt, use the site's official API or consult a legal professional.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Should I cache responses during development?</summary>
+          <div class="faq-answer">
+            Yes. Tools like <code>requests-cache</code> (Python) save HTTP responses locally so
+            repeated runs during development don't hit the server again. This speeds up your
+            iteration loop and reduces unnecessary load on the target site.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What about User-Agent headers?</summary>
+          <div class="faq-answer">
+            Some sites block requests with default library User-Agent strings. You can set a
+            descriptive User-Agent that identifies your bot and includes contact information
+            (e.g. <code>"MyResearchBot/1.0 (contact@example.com)"</code>). Impersonating a
+            real browser to bypass protections is considered bad practice.
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      John D's Web Gatherer &copy; <span id="year"></span>
+      &nbsp;&middot;&nbsp; John Russelle Domingo
+      &nbsp;&middot;&nbsp; WDD131
+      &nbsp;&middot;&nbsp; <a href="references.html">References</a>
+    </p>
+    <p id="lastModified"></p>
+  </footer>
+
+  
+</body>
+</html>

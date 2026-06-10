@@ -40,7 +40,7 @@ This is my home page for the WDD 131 course at BYU-Idaho. It follows the [W01 As
 ### Other Issues Addressed
 
 - **Image Optimization:** All images are referenced correctly, have descriptive alt text, and are optimized to be under 125 kB for fast loading.
-- **No <marquee> Used:** The deprecated <marquee> tag was removed. A modern CSS animation is used for any scrolling text effects.
+- **No <--marquee--> Used:** The deprecated <--marquee--> tag was removed. A modern CSS animation is used for any scrolling text effects.
 - **No Inline or Embedded Styles:** All CSS is in external stylesheets, following best practices.
 - **Color Usage Standardized:** All colors are now managed via CSS variables for consistency and maintainability.
 - **Footer Contrast:** Footer background and text colors were adjusted to meet WCAG AAA contrast requirements.
@@ -145,3 +145,166 @@ Made by John Russelle Domingo for WDD 131.
 | `styles/form.css` | All form and confirmation styles |
 | `scripts/form.js` | Populates the product dropdown from an array |
 | `scripts/review.js` | Reads/writes the review counter in localStorage |
+
+---
+
+## Week 06: Final Project — John D's Web Gatherer 🕷️
+
+### Where Week 05 Left Off (the Starting Point)
+Week 05 produced a full site plan (`project/siteplan.html`) for *John D's Web Gatherer* — a beginner's guide to static web scraping. By the end of W05 I already had:
+
+| W05 Deliverable | What it locked in for W06 |
+|---|---|
+| **Site name & purpose** — beginner scraping guide, pure HTML/CSS/JS | No scope-creep; I knew exactly what content to write |
+| **Color palette** — Dark Amethyst `#0d0630`, Deep Space Blue `#18314f`, Muted Teal `#8bbeb2`, Lime Cream `#e6f9af` | Copied directly into `--css-variables` in `main.css` — zero guessing |
+| **Typography** — Montserrat (headings) + Roboto (body), both from Google Fonts | Same `<link>` tag copy-pasted into every page's `<head>` |
+| **3 visitor scenarios** — beginner, ethics-curious, messy-data person | Drove what *pages* I needed: Home (what is it?), Tools (what do I use?), Contact (ask a question) |
+| **CSS wireframes** — mobile stacked / desktop 3-column | Confirmed the grid layout before writing a single line of real CSS |
+
+*Decision: don't redesign in W06. The siteplan was the design. W06 was purely execution.*
+
+---
+
+### The Big Idea
+Turn that blueprint into a real, working 4-page site. Think of it like a cookbook: the siteplan was the recipe card — Week 06 was actually cooking the meal.
+
+---
+
+### Pages Built
+
+| Page | What it does | W05 connection |
+|---|---|---|
+| `index.html` | Home: hero, how-it-works steps, ethics FAQ, progress tracker | Scenario 1 (what is scraping?) + Scenario 2 (is it legal?) |
+| `tools.html` | Filterable/searchable tool catalog (13 tools) + code snippet | Scenario 1 (what tools do I use?) |
+| `contact.html` | Validated form with auto-save draft | Scenario 3 (I need help with my messy data) |
+| `references.html` | Plain citation list | Required by assignment; linked from every footer |
+
+---
+
+### How I Built It 🔨
+
+**Step 1 — Copy the palette into CSS variables**
+Opened `siteplan.html`, grabbed the 5 hex codes from the color swatches section, and pasted them as `:root` variables in `styles/main.css`.
+*Decision: CSS variables mean changing a color in one place updates the whole site — same trick used in the siteplan CSS itself.*
+
+**Step 2 — Styles first, HTML second**
+Built `styles/main.css` (mobile-first) and `styles/large.css` (tablet/desktop overrides) before writing any HTML.
+*Decision: the wireframes already told me the layout — code the layout rules once, then all pages inherit them.*
+
+**Step 3 — One shared JS file for common stuff**
+`scripts/site.js` handles three things every page needs: hamburger nav toggle, footer year, and the progress tracker.
+*Decision: one file instead of copy-pasting the same 3 functions across 4 pages.*
+
+**Step 4 — Separate JS files for page-specific logic**
+`scripts/tools.js` runs the tool catalog. `scripts/contact.js` handles the form.
+*Decision: keeps each file small and focused — easier to debug and read.*
+
+---
+
+### JavaScript Checklist ✅ (Assignment Requirements)
+
+| Requirement | Where it lives |
+|---|---|
+| More than one function | Every JS file has multiple named functions |
+| DOM interaction (select, modify, listen) | `renderProgressTracker`, `renderTools`, `initContactForm` |
+| Conditional branching | Topic toggle (add vs. remove), form validation checks, filter logic |
+| Objects, arrays, array methods | `TOOLS` and `TOPICS` arrays; `.filter()`, `.map()`, `.forEach()`, `.push()`, `.splice()` |
+| Template literals **exclusively** | All dynamic HTML strings use `` `backtick ${ }` `` — zero string concatenation |
+| `localStorage` | Progress tracker saves/loads checked topics; contact form saves draft while typing |
+
+---
+
+### Emojis & Visual Design 🎨
+
+Emojis pull double duty — decoration **and** meaning at zero image cost:
+- 🕷️ = site identity (spider = web gatherer — the name pun made visual)
+- ✅ / ⬜ = progress tracker tick boxes (everyone already knows what these mean)
+- 🐍 / 📦 / 💻 = category icons on tool cards (Python snake, JS box, CLI terminal)
+- 🔨 / ⚖️ / 💬 = feature card icons on the home page
+
+*Decision: use emojis instead of loading an icon library. Saves a network request and keeps the HTML clean.*
+
+---
+
+### Challenges Overcome 💪
+
+| Problem | What went wrong | How I fixed it |
+|---|---|---|
+| **Nav on desktop** | Hamburger button stays visible when screen is wide | Added `display:none` on `.nav-toggle` inside the `@media (min-width:768px)` block |
+| **Progress bar fills but doesn't animate** | Width applied instantly after JS sets `style.width` | CSS `transition: width 0.5s ease` on `.progress-bar` makes it slide smoothly |
+| **Form draft restores stale data** | Bad JSON in localStorage crashes `JSON.parse` | Wrapped `loadDraft` in `try/catch` — clears the bad key and silently moves on |
+| **Tool search feeling broken** | Results vanish while typing because previous filter was reset | Stored `activeCategory` and `searchQuery` in module-level variables so both apply together |
+| **`robots.txt` FAQ** | Needed a real `robots.txt` example URL that wouldn't break | Used `example.com` (IANA-reserved domain) — safe, predictable, always accessible |
+
+---
+
+### What I Learned 🧠
+
+- **Plan first, build second.** The siteplan doc paid off — I never had to guess the colors, fonts, or layout during coding.
+- **CSS variables are a superpower.** Changing `--teal` in one place updated every heading, button border, and focus ring across all four pages instantly.
+- **`localStorage` is simple but fragile.** Always wrap reads in `try/catch` because any corrupted value will crash your whole script silently.
+- **Template literals keep HTML readable.** Writing multi-line HTML strings with `${}` slots is far easier to scan than a wall of `+` concatenation.
+- **Lazy loading is one attribute.** Adding `loading="lazy"` to the SVG diagram took 5 seconds and makes the page load faster on slow connections.
+
+---
+
+### Does It Actually Work? — Live Demo 🖥️
+
+**Yes.** Open it here (once pushed to GitHub Pages):
+👉 `https://kiddogreed.github.io/wdd131/project/index.html`
+
+---
+
+#### Page-by-page walkthrough
+
+**🏠 Home (`index.html`)**
+1. Open the page — the hero banner loads with a dark space-themed background
+2. On mobile: tap **☰** in the top-right → nav slides open → tap **✕** to close it
+3. Scroll down to **"Track Your Learning"** → click any topic checkbox → it turns ✅ and the progress bar fills
+4. Close the tab, reopen the page → your checkboxes are still ticked *(localStorage at work)*
+5. Click **Reset Progress** → everything clears back to 0%
+6. Scroll to **Ethics & Best Practices** → click any FAQ question → the answer accordion opens/closes
+
+**🔧 Tools (`tools.html`)**
+1. All 13 tool cards load automatically — no page refresh needed
+2. Click **Python** filter button → only Python tools show; button highlights
+3. Click **All** → everything comes back
+4. Type `"soup"` in the search box → only BeautifulSoup appears
+5. Type something that matches nothing (e.g. `"xyz"`) → "No tools match" message appears
+6. Clear the search → all tools reappear
+7. Click **View docs ↗** on any card → opens the official docs in a new tab
+
+**📬 Contact (`contact.html`)**
+1. Start typing your name, email, and a message — then close the tab
+2. Reopen the Contact page → your half-typed form is still there *(draft auto-save via localStorage)*
+3. Hit **Send Message** with the form empty → red error messages appear under each required field
+4. Fill in all fields correctly and click **Send Message** → form hides, green success message appears
+5. Click **Clear Form** at any point → all fields reset
+
+**📄 References (`references.html`)**
+1. Linked from every page's footer — click "References" in the footer
+2. Plain-text citations page, no styling needed
+
+---
+
+#### Quick sanity checks before submitting
+
+| Check | How |
+|---|---|
+| No red console errors | DevTools → Console tab (F12) |
+| Progress tracker saves on refresh | Check a topic → F5 → still checked |
+| Form validates empty submit | Click Send with blank fields → errors appear |
+| Hamburger works on narrow screen | Resize browser to < 768px → nav collapses |
+| Last Modified shows in footer | Should display today's date (or file's actual modified date) |
+
+---
+
+### Future Improvements 🚀
+
+| Idea | Why it would help |
+|---|---|
+| Add a "Beginner's First Scraper" page with a real step-by-step tutorial | The current site explains *what* scraping is but doesn't walk through a full working example |
+| Dark/light theme toggle | Some users prefer a lighter background for reading long text |
+| Tool comparison table | Side-by-side feature grid (speed, JS support, learning curve) would save visitors research time |
+| Store contact submissions to a real backend | Right now the form just clears — connecting it to a service like Formspree would send a real email |
+| Keyboard-accessible progress tracker | Currently click-only; adding `Enter`/`Space` key support would improve accessibility |

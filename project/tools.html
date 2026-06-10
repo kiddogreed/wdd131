@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore and filter the most popular web scraping tools and libraries for Python, JavaScript, and the command line.">
+  <meta name="author" content="John Russelle Domingo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/large.css">
+  <title>Tools – John D's Web Gatherer</title>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="John D's Web Gatherer – home">
+        <span class="logo-icon" aria-hidden="true">🕷️</span>
+        <span class="logo-text">John D's Web Gatherer</span>
+      </a>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Toggle navigation"
+      >☰</button>
+    </div>
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── Tool catalog ── -->
+    <div class="section">
+      <h1 class="section-title">Tools &amp; Libraries</h1>
+      <p style="margin-bottom:2rem; opacity:0.85">
+        Browse the most popular web scraping tools across Python, JavaScript, and the command line.
+        Filter by category or type a keyword to find the right tool for your project.
+      </p>
+
+      <!-- Filter buttons + search input (populated by tools.js) -->
+      <div
+        class="filter-bar"
+        id="filter-bar"
+        role="group"
+        aria-label="Filter tools by category"
+      ></div>
+
+      <!-- Tool cards (populated by tools.js) -->
+      <div
+        class="tool-grid"
+        id="tool-grid"
+        aria-live="polite"
+        aria-label="Filtered tool list"
+      >
+        <p style="opacity:0.45">Loading tools…</p>
+      </div>
+    </div>
+
+    <!-- ── Quick-start code snippet ── -->
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">Quick Start: Requests + BeautifulSoup</h2>
+      <p style="margin-bottom:1.25rem; opacity:0.85">
+        The most popular Python scraping stack. Install both libraries with
+        <code style="background:var(--border);padding:0.1rem 0.4rem;border-radius:4px">pip</code>,
+        then run the snippet below to scrape the page title of any static site.
+      </p>
+
+      <div class="code-block">
+        <pre><span class="comment"># Install: pip install requests beautifulsoup4</span>
+<span class="keyword">import</span> requests
+<span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup
+
+url      = <span class="string">"https://example.com"</span>
+response = requests.<span class="func">get</span>(url, timeout=10)
+response.<span class="func">raise_for_status</span>()          <span class="comment"># raise on 4xx / 5xx errors</span>
+
+soup  = BeautifulSoup(response.text, <span class="string">"html.parser"</span>)
+title = soup.<span class="func">find</span>(<span class="string">"title"</span>).<span class="func">get_text</span>(strip=<span class="keyword">True</span>)
+<span class="func">print</span>(<span class="string">f"Page title: <span class="func">{title}</span>"</span>)</pre>
+      </div>
+
+      <div class="info-box">
+        <strong>Tip:</strong> Always pass a <code>timeout</code> argument to
+        <code>requests.get()</code> so your script doesn't hang indefinitely waiting for a slow server.
+      </div>
+    </div>
+
+    <!-- ── Choosing a tool ── -->
+    <div class="section" style="padding-top:0">
+      <h2 class="section-title">Which Tool Should I Use?</h2>
+
+      <div class="card-grid" style="margin-top:0.5rem">
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🐍</div>
+          <h3>Static pages in Python</h3>
+          <p>
+            Start with <strong>Requests + BeautifulSoup</strong>. They are easy to install,
+            well-documented, and more than enough for most beginner projects.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">⚡</div>
+          <h3>Large-scale Python crawling</h3>
+          <p>
+            Reach for <strong>Scrapy</strong>. Its async engine, built-in pipelines, and
+            feed exporters make it the go-to framework for production-grade scrapers.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🤖</div>
+          <h3>JavaScript-rendered pages</h3>
+          <p>
+            Use <strong>Playwright</strong> (available for both Python and Node.js) or
+            <strong>Puppeteer</strong>. They drive a real browser so all JS executes first.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>
+      John D's Web Gatherer &copy; <span id="year"></span>
+      &nbsp;&middot;&nbsp; John Russelle Domingo
+      &nbsp;&middot;&nbsp; WDD131
+      &nbsp;&middot;&nbsp; <a href="references.html">References</a>
+    </p>
+  </footer>
+
+  <script src="scripts/site.js"></script>
+  <script src="scripts/tools.js"></script>
+</body>
+</html>
