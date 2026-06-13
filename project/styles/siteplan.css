@@ -7,6 +7,7 @@
   --lime-cream: #e6f9af;
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Roboto', sans-serif;
+  --radius: 8px;
 }
 
 /* Reset: remove default margin/padding and enforce border-box sizing */
@@ -48,10 +49,17 @@ header {
   font-size: 2rem;
 }
 
-header h1 {
+header h1,
+section h2,
+.card h3,
+.color-name,
+.wireframe-wrapper h3 {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
   color: var(--muted-teal);
+}
+
+header h1 {
+  font-size: 2.2rem;
   letter-spacing: 2px;
 }
 
@@ -81,8 +89,6 @@ section {
 
 /* Section heading: uppercase teal with bottom border divider */
 section h2 {
-  font-family: var(--font-heading);
-  color: var(--muted-teal);
   font-size: 1.5rem;
   border-bottom: 2px solid var(--dusk-blue);
   padding-bottom: 0.4rem;
@@ -91,16 +97,18 @@ section h2 {
 }
 
 /* Reusable content card with subtle border */
+.card,
+.font-preview {
+  border: 1px solid var(--dusk-blue);
+  border-radius: var(--radius);
+}
+
 .card {
   background-color: var(--deep-space-blue);
-  border: 1px solid var(--dusk-blue);
-  border-radius: 8px;
   padding: 1.5rem;
 }
 
 .card h3 {
-  font-family: var(--font-heading);
-  color: var(--muted-teal);
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
 }
@@ -161,14 +169,13 @@ section h2 {
 }
 
 /* Individual swatch background and text colors */
-.swatch--dark-amethyst  { background: #0d0630; color: #e6f9af; }
-.swatch--deep-space     { background: #18314f; color: #e6f9af; }
-.swatch--dusk-blue      { background: #384e77; color: #e6f9af; }
-.swatch--muted-teal     { background: #8bbeb2; color: #0d0630; }
-.swatch--lime-cream     { background: #e6f9af; color: #0d0630; }
+.swatch--dark-amethyst  { background: var(--dark-amethyst); color: var(--lime-cream); }
+.swatch--deep-space     { background: var(--deep-space-blue); color: var(--lime-cream); }
+.swatch--dusk-blue      { background: var(--dusk-blue); color: var(--lime-cream); }
+.swatch--muted-teal     { background: var(--muted-teal); color: var(--dark-amethyst); }
+.swatch--lime-cream     { background: var(--lime-cream); color: var(--dark-amethyst); }
 
 .color-name {
-  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
 }
@@ -214,8 +221,6 @@ hr {
 /* Dark inset box showing the font in context */
 .font-preview {
   background-color: var(--dark-amethyst);
-  border: 1px solid var(--dusk-blue);
-  border-radius: 6px;
   padding: 1rem 1.25rem;
 }
 
@@ -229,19 +234,21 @@ hr {
 }
 
 /* Montserrat italic subheading sample */
+.preview-subheading,
+.preview-body {
+  font-size: 1rem;
+  color: var(--lime-cream);
+}
+
 .preview-subheading {
   font-family: var(--font-heading);
-  font-size: 1rem;
   font-weight: 400;
   font-style: italic;
-  color: var(--lime-cream);
 }
 
 /* Roboto body text sample */
 .preview-body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--lime-cream);
 }
 
 /* ── Wireframes ── */
@@ -261,69 +268,71 @@ hr {
 }
 
 .wireframe-wrapper h3 {
-  font-family: var(--font-heading);
-  color: var(--muted-teal);
   font-size: 1rem;
   text-align: center;
 }
 
-.mobile-wireframe {
-  width: 220px;
+.mobile-wireframe,
+.desktop-wireframe {
   border: 2px solid var(--dusk-blue);
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 4px;
   background-color: var(--dark-amethyst);
   padding: 4px;
+}
+
+.mobile-wireframe {
+  width: 220px;
 }
 
 .desktop-wireframe {
   width: 480px;
-  border: 2px solid var(--dusk-blue);
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background-color: var(--dark-amethyst);
-  padding: 4px;
+}
+
+.wf-header,
+.wf-header-desktop,
+.wf-hero,
+.wf-hero-desktop {
+  background-color: var(--dusk-blue);
+  color: var(--lime-cream);
+  border-radius: 4px;
 }
 
 .wf-header,
 .wf-header-desktop {
-  background-color: var(--dusk-blue);
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px;
   font-size: 0.7rem;
   font-family: var(--font-heading);
-  color: var(--lime-cream);
 }
 
 .wf-hero,
 .wf-hero-desktop {
-  background-color: var(--dusk-blue);
   padding: 1.2rem 0.5rem;
   text-align: center;
   font-size: 0.7rem;
-  color: var(--lime-cream);
-  border-radius: 4px;
   border: 1px dashed var(--muted-teal);
 }
 
 .wf-section,
-.wf-section-wide {
+.wf-section-wide,
+.wf-col {
   background-color: var(--deep-space-blue);
-  padding: 0.6rem;
   border-radius: 4px;
   font-size: 0.65rem;
   color: var(--lime-cream);
   border: 1px solid var(--dusk-blue);
   text-align: center;
+}
+
+.wf-section,
+.wf-section-wide {
+  padding: 0.6rem;
 }
 
 .wf-footer {
@@ -360,13 +369,7 @@ hr {
 
 .wf-col {
   flex: 1;
-  background-color: var(--deep-space-blue);
   padding: 1.5rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.65rem;
-  color: var(--lime-cream);
-  border: 1px solid var(--dusk-blue);
-  text-align: center;
 }
 
 /* ── Footer ── */

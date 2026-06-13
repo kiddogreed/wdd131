@@ -308,3 +308,33 @@ Emojis pull double duty — decoration **and** meaning at zero image cost:
 | Tool comparison table | Side-by-side feature grid (speed, JS support, learning curve) would save visitors research time |
 | Store contact submissions to a real backend | Right now the form just clears — connecting it to a service like Formspree would send a real email |
 | Keyboard-accessible progress tracker | Currently click-only; adding `Enter`/`Space` key support would improve accessibility |
+
+---
+
+## CSS Optimization Update for `project/styles`
+
+I optimized all three CSS files used by **John D's Web Gatherer**:
+
+- `project/styles/main.css`
+- `project/styles/large.css`
+- `project/styles/siteplan.css`
+
+### What Changed
+
+- Consolidated repeated declarations into grouped selectors so shared panel, heading, and wireframe styles are defined once instead of repeated in multiple blocks.
+- Standardized more of the color system by moving repeated hardcoded values into CSS custom properties where appropriate.
+- Simplified responsive styling by using shared CSS variables in `main.css` and overriding those values inside `large.css` instead of repeating full rules.
+- Updated `siteplan.css` to reuse the same palette variables for swatches and repeated layout pieces.
+- Kept the visual design and page structure the same while improving maintainability.
+
+### Why This Helps
+
+- Fewer repeated declarations make the files easier to read and update.
+- Centralized tokens make color and spacing changes faster and safer.
+- Cleaner responsive overrides reduce the chance of inconsistencies between mobile and desktop layouts.
+- The stylesheets are easier to maintain without changing the look of the site.
+
+### Validation
+
+- Checked `project/styles/main.css`, `project/styles/large.css`, and `project/styles/siteplan.css` after refactoring.
+- No CSS syntax errors were found in the updated files.

@@ -5,6 +5,13 @@
 
 @media (min-width: 768px) {
 
+  :root {
+    --header-padding: 0.6rem 2rem;
+    --hero-title-size: 3rem;
+    --card-columns: repeat(3, 1fr);
+    --tool-columns: repeat(2, 1fr);
+  }
+
   /* Hide hamburger; show nav as horizontal bar */
   .nav-toggle { display: none; }
 
@@ -33,25 +40,11 @@
     text-decoration: none;
   }
 
-  /* ── Header: logo + nav on one row ── */
-  .header-inner {
-    padding: 0.6rem 2rem;
-  }
-
-  /* ── Hero ── */
-  .hero h1 { font-size: 3rem; }
-
-  /* ── 3-column card grid ── */
-  .card-grid { grid-template-columns: repeat(3, 1fr); }
-
   /* ── Progress tracker: 2-column topic list ── */
   .topic-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* ── Tools: 2-column grid ── */
-  .tool-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Filter bar: single row, no wrap */
   .filter-bar { flex-wrap: nowrap; }
@@ -60,13 +53,11 @@
 
 @media (min-width: 1024px) {
 
-  .header-inner { padding: 0.6rem 2.5rem; }
-
-  .hero h1 { font-size: 3.5rem; }
-
-  /* ── 3-column tool grid ── */
-  .tool-grid { grid-template-columns: repeat(3, 1fr); }
-
-  .section { padding: 4rem 2rem; }
+  :root {
+    --header-padding: 0.6rem 2.5rem;
+    --hero-title-size: 3.5rem;
+    --section-padding: 4rem 2rem;
+    --tool-columns: repeat(3, 1fr);
+  }
 
 }
